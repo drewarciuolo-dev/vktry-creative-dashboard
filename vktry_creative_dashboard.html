@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VKTRY Weekly Creative Insights — Feb 22, 2026</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --navy: #0d1b2a;
+      --blue: #1a4a7a;
+      --accent: #e8a020;
+      --gold: #f5c842;
+      --light: #f4f7fb;
+      --card: #ffffff;
+      --text: #1e2a3a;
+      --muted: #6b7a8d;
+      --border: #dde3ec;
+      --green: #2ecc71;
+      --red: #e74c3c;
+      --purple: #8e44ad;
+      --teal: #1abc9c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: #fff;
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    header .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    header h1 {
+      font-size: clamp(24px, 4vw, 38px);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    header p {
+      font-size: 15px;
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .header-stats {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .header-stat {
+      text-align: center;
+    }
+    .header-stat .num {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--gold);
+    }
+    .header-stat .lbl {
+      font-size: 12px;
+      opacity: 0.7;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* ===== NAV TABS ===== */
+    nav {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      padding: 0 16px;
+      overflow-x: auto;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    nav button {
+      background: none;
+      border: none;
+      padding: 14px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    nav button:hover { color: var(--blue); }
+    nav button.active {
+      color: var(--blue);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    main { max-width: 1200px; margin: 0 auto; padding: 32px 16px 64px; }
+    .section { display: none; }
+    .section.active { display: block; }
+
+    /* ===== SECTION TITLE ===== */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .section-title .icon {
+      font-size: 28px;
+    }
+    .section-title h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .section-title p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ===== CARDS ===== */
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+    .card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    /* ===== GRID ===== */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+
+    /* ===== METRIC CARDS ===== */
+    .metric-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .metric-card .value {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .metric-card .label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .metric-card .change {
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+    .change.up { color: var(--green); }
+    .change.down { color: var(--red); }
+
+    /* ===== TOP ADS TABLE ===== */
+    .ad-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .ad-table th {
+      background: var(--light);
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+    }
+    .ad-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    .ad-table tr:hover td { background: #f8faff; }
+    .ad-table tr:last-child td { border-bottom: none; }
+    .ad-name { font-weight: 600; color: var(--navy); max-width: 220px; }
+    .sport-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .sport-baseball { background: #fff3e0; color: #e65100; }
+    .sport-basketball { background: #e8f5e9; color: #2e7d32; }
+    .sport-soccer { background: #e3f2fd; color: #1565c0; }
+    .sport-football { background: #fce4ec; color: #880e4f; }
+    .sport-multi { background: #f3e5f5; color: #6a1b9a; }
+    .sport-unknown { background: #eceff1; color: #546e7a; }
+    .ctr-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ctr-bar-fill {
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--accent));
+      min-width: 4px;
+    }
+    .ctr-val { font-size: 12px; font-weight: 700; color: var(--blue); }
+
+    /* ===== PERFORMER CARDS ===== */
+    .performer-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-left: 4px solid var(--accent);
+      margin-bottom: 16px;
+    }
+    .performer-card .rank {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--accent);
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .performer-card h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .performer-card .meta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .performer-card .meta span {
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--light);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .performer-card p {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .performer-card .insight-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    /* ===== RECOMMENDATION CARDS ===== */
+    .rec-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-bottom: 16px;
+      display: flex;
+      gap: 16px;
+    }
+    .rec-card .rec-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: #fff;
+      font-size: 16px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .rec-card .rec-body h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .rec-card .rec-body .hypothesis {
+      font-size: 13px;
+      color: var(--text);
+      background: #f0f4ff;
+      border-left: 3px solid var(--blue);
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+
+    /* ===== SEASONAL TIMELINE ===== */
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--card);
+    }
+    .timeline-item.current::before { background: var(--green); }
+    .timeline-item h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .timeline-item p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .timeline-item .month-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .month-tag.current { background: #e8f5e9; color: #2e7d32; }
+    .month-tag.upcoming { background: #fff3e0; color: #e65100; }
+
+    /* ===== WARNING BOX ===== */
+    .warning-box {
+      background: #fff8e1;
+      border: 1px solid #ffe082;
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-top: 24px;
+    }
+    .warning-box h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #7b5800;
+      margin-bottom: 6px;
+    }
+    .warning-box p {
+      font-size: 13px;
+      color: #7b5800;
+    }
+
+    /* ===== CHART CONTAINER ===== */
+    .chart-container {
+      position: relative;
+      height: 280px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 32px 16px;
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      font-size: 12px;
+    }
+    footer strong { color: rgba(255,255,255,0.8); }
+
+    @media (max-width: 600px) {
+      .header-stats { gap: 20px; }
+      .rec-card { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Weekly Creative Intelligence</div>
+  <h1>VKTRY Gear — Ad Creative Feedback</h1>
+  <p>Week of February 22, 2026 &bull; Powered by live Meta Ads data &bull; 453 active ads analyzed</p>
+  <div class="header-stats">
+    <div class="header-stat">
+      <div class="num">$255K</div>
+      <div class="lbl">Total Spend (30d)</div>
+    </div>
+    <div class="header-stat">
+      <div class="num">453</div>
+      <div class="lbl">Active Ads</div>
+    </div>
+    <div class="header-stat">
+      <div class="num">0.84%</div>
+      <div class="lbl">Avg. CTR (Video)</div>
+    </div>
+    <div class="header-stat">
+      <div class="num">7.47%</div>
+      <div class="lbl">Avg. CTR (UGC)</div>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <button class="active" onclick="showSection('overview')">Overview</button>
+  <button onclick="showSection('performers')">Top Performers</button>
+  <button onclick="showSection('formats')">Creative Formats</button>
+  <button onclick="showSection('audiences')">Audiences</button>
+  <button onclick="showSection('seasonal')">Seasonal Intel</button>
+  <button onclick="showSection('recommendations')">Recommendations</button>
+</nav>
+
+<main>
+
+  <!-- ===== OVERVIEW ===== -->
+  <section id="overview" class="section active">
+    <div class="section-title">
+      <span class="icon">📈</span>
+      <div>
+        <h2>Performance Overview</h2>
+        <p>High-level metrics and spend distribution across sports and formats</p>
+      </div>
+    </div>
+
+    <div class="grid-4" style="margin-bottom:24px;">
+      <div class="metric-card">
+        <div class="value">$255K</div>
+        <div class="label">Total Spend (30d)</div>
+        <div class="change up">↑ Active campaigns</div>
+      </div>
+      <div class="metric-card">
+        <div class="value">7.47%</div>
+        <div class="label">Best CTR (UGC)</div>
+        <div class="change up">↑ vs. 0.84% video avg</div>
+      </div>
+      <div class="metric-card">
+        <div class="value">$22.97</div>
+        <div class="label">Best CPA (Static)</div>
+        <div class="change up">↑ Mac $99 Sale</div>
+      </div>
+      <div class="metric-card">
+        <div class="value">10.33%</div>
+        <div class="label">Top Ad CTR</div>
+        <div class="change up">↑ Grandson Review</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Spend by Sport / Audience Segment</h3>
+        <div class="chart-container">
+          <canvas id="sportSpendChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Spend by Creative Format</h3>
+        <div class="chart-container">
+          <canvas id="formatSpendChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>CTR by Creative Format — Engagement Efficiency</h3>
+      <div class="chart-container" style="height:220px;">
+        <canvas id="ctrFormatChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Top 10 Ads by Spend — This Week</h3>
+      <div style="overflow-x:auto;">
+        <table class="ad-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Ad Name</th>
+              <th>Sport</th>
+              <th>Format</th>
+              <th>Spend</th>
+              <th>CTR</th>
+              <th>CPM</th>
+            </tr>
+          </thead>
+          <tbody id="topAdsTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TOP PERFORMERS ===== -->
+  <section id="performers" class="section">
+    <div class="section-title">
+      <span class="icon">🏆</span>
+      <div>
+        <h2>This Week's Top Creative Performers</h2>
+        <p>Deep analysis of the ads driving the most value — what they are, who they resonate with, and why</p>
+      </div>
+    </div>
+
+    <div class="performer-card">
+      <div class="rank">#1 Top Performer — Highest Spend + Strong Conversion</div>
+      <h4>Throw Harder with Less Effort — 9x16 — 11/11</h4>
+      <div class="meta">
+        <span>⚾ Baseball</span>
+        <span>🎬 Video</span>
+        <span>Pre-Season Timing</span>
+      </div>
+      <div class="insight-label">What the Creative Is</div>
+      <p>A dynamic 9:16 video demonstrating a baseball pitcher using VKTRY insoles to increase throwing power with reduced effort. The hook is performance enhancement tied directly to a key baseball skill.</p>
+      <div class="insight-label">Who It Resonates With & Why</div>
+      <p>Baseball players ramping up for pre-season, coaches, and serious athletes focused on measurable gains in power and efficiency. February is prime pre-season training time — this message is perfectly timed.</p>
+      <div class="insight-label">Creative Principle</div>
+      <p><strong>Benefit-driven specificity.</strong> The ad shows a clear, sport-specific performance outcome. The "less effort" messaging appeals to an athlete's desire for efficiency and competitive edge without overtraining.</p>
+    </div>
+
+    <div class="performer-card" style="border-left-color: var(--teal);">
+      <div class="rank" style="color:var(--teal);">#2 Top Performer — High CTR + Sport Momentum</div>
+      <h4>Shown Soccer</h4>
+      <div class="meta">
+        <span>⚽ Soccer</span>
+        <span>🎬 Video</span>
+        <span>1.50% CTR</span>
+      </div>
+      <div class="insight-label">What the Creative Is</div>
+      <p>An engaging soccer-focused video highlighting speed and agility benefits of VKTRY insoles. High-energy visuals and sport-specific movement appeal drive strong engagement.</p>
+      <div class="insight-label">Who It Resonates With & Why</div>
+      <p>Soccer athletes preparing for spring season, focused on speed and injury prevention. The 1.50% CTR signals strong audience alignment and intent.</p>
+      <div class="insight-label">Creative Principle</div>
+      <p><strong>Sport-specific action storytelling.</strong> Combining clear performance benefits with high-energy visuals that match the sport's aesthetic creates an authentic, compelling message.</p>
+    </div>
+
+    <div class="performer-card" style="border-left-color: var(--purple);">
+      <div class="rank" style="color:var(--purple);">#3 Top Performer — Highest CTR Overall (10.33%)</div>
+      <h4>My Grandsons Review w/o Copy</h4>
+      <div class="meta">
+        <span>🏀 Basketball</span>
+        <span>🎤 UGC/Testimonial</span>
+        <span>10.33% CTR</span>
+        <span>$36.31 CPA</span>
+      </div>
+      <div class="insight-label">What the Creative Is</div>
+      <p>User-generated content featuring a family member's enthusiastic review — no heavy copy, just authentic and relatable storytelling. The absence of polished production is the point.</p>
+      <div class="insight-label">Who It Resonates With & Why</div>
+      <p>Basketball players and parents of youth athletes who value peer validation. The family angle is particularly powerful for parents making purchasing decisions for their kids.</p>
+      <div class="insight-label">Creative Principle</div>
+      <p><strong>Emotional authenticity = trust.</strong> This ad's exceptional 10.33% CTR and $36.31 CPA proves that raw, unscripted social proof dramatically outperforms polished content in engagement and efficiency.</p>
+    </div>
+
+    <div class="performer-card" style="border-left-color: var(--green);">
+      <div class="rank" style="color:var(--green);">#4 Top Performer — Best CPA ($22.97)</div>
+      <h4>Mac $99 Sale — Static 8</h4>
+      <div class="meta">
+        <span>🏷️ Sale Offer</span>
+        <span>🖼️ Static Image</span>
+        <span>$22.97 CPA</span>
+      </div>
+      <div class="insight-label">What the Creative Is</div>
+      <p>A clean, direct static ad promoting a $99 sale on VKTRY insoles with a clear pricing callout. Simple, promotional, and conversion-focused.</p>
+      <div class="insight-label">Who It Resonates With & Why</div>
+      <p>Price-conscious buyers and those already familiar with VKTRY who are considering a purchase. This ad closes the deal rather than building awareness.</p>
+      <div class="insight-label">Creative Principle</div>
+      <p><strong>Offer clarity drives conversion efficiency.</strong> The lowest CPA in the account proves that when the audience is warm, a simple, clear offer beats complex storytelling for conversion rate.</p>
+    </div>
+
+    <div class="performer-card" style="border-left-color: #e74c3c;">
+      <div class="rank" style="color:#e74c3c;">#5 Top Performer — Collegiate Credibility (1.70% CTR)</div>
+      <h4>Alabama Volleyball</h4>
+      <div class="meta">
+        <span>🏐 Volleyball</span>
+        <span>🎬 Video</span>
+        <span>1.70% CTR</span>
+      </div>
+      <div class="insight-label">What the Creative Is</div>
+      <p>A sport-specific video ad featuring collegiate volleyball athletes demonstrating VKTRY performance benefits. The association with a recognizable university program adds instant credibility.</p>
+      <div class="insight-label">Who It Resonates With & Why</div>
+      <p>Volleyball players preparing for spring season, coaches, and collegiate athletes. The aspirational appeal of seeing real athletes from a respected program is highly motivating.</p>
+      <div class="insight-label">Creative Principle</div>
+      <p><strong>Aspirational association.</strong> Linking the product to a credible, recognizable athletic program creates social proof at scale, making the performance claims feel more believable and desirable.</p>
+    </div>
+  </section>
+
+  <!-- ===== CREATIVE FORMATS ===== -->
+  <section id="formats" class="section">
+    <div class="section-title">
+      <span class="icon">📊</span>
+      <div>
+        <h2>Creative Format Insights</h2>
+        <p>How video, static, and UGC formats compare on spend, engagement, and efficiency</p>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:24px;">
+      <div class="metric-card">
+        <div class="value" style="color:var(--blue);">0.84%</div>
+        <div class="label">Video Avg. CTR</div>
+        <div class="change up">85%+ of total spend</div>
+      </div>
+      <div class="metric-card">
+        <div class="value" style="color:var(--muted);">0.76%</div>
+        <div class="label">Static Avg. CTR</div>
+        <div class="change up">Best CPA ($22.97)</div>
+      </div>
+      <div class="metric-card">
+        <div class="value" style="color:var(--accent);">7.47%</div>
+        <div class="label">UGC Avg. CTR</div>
+        <div class="change up">Underutilized — big opportunity</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>CTR Comparison by Format</h3>
+        <div class="chart-container">
+          <canvas id="ctrComparisonChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Spend Distribution by Format</h3>
+        <div class="chart-container">
+          <canvas id="formatDistributionChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Format Performance Summary</h3>
+      <div style="overflow-x:auto;">
+        <table class="ad-table">
+          <thead>
+            <tr>
+              <th>Format</th>
+              <th>Avg. CTR</th>
+              <th>Total Spend</th>
+              <th>Active Ads</th>
+              <th>Verdict</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Video</strong></td>
+              <td><div class="ctr-bar"><div class="ctr-bar-fill" style="width:56px;"></div><span class="ctr-val">0.84%</span></div></td>
+              <td>$217K+</td>
+              <td>380+</td>
+              <td>✅ Workhorse — best for storytelling and product demos</td>
+            </tr>
+            <tr>
+              <td><strong>Static Image</strong></td>
+              <td><div class="ctr-bar"><div class="ctr-bar-fill" style="width:50px;"></div><span class="ctr-val">0.76%</span></div></td>
+              <td>~$25K</td>
+              <td>50+</td>
+              <td>✅ Best CPA — ideal for direct offers and retargeting</td>
+            </tr>
+            <tr>
+              <td><strong>UGC/Testimonial</strong></td>
+              <td><div class="ctr-bar"><div class="ctr-bar-fill" style="width:140px; background: linear-gradient(90deg, var(--accent), var(--gold));"></div><span class="ctr-val" style="color:var(--accent);">7.47%</span></div></td>
+              <td>~$8K</td>
+              <td>8</td>
+              <td>🚀 Highest CTR — massively underutilized, scale immediately</td>
+            </tr>
+            <tr>
+              <td><strong>Influencer/UGC</strong></td>
+              <td><div class="ctr-bar"><div class="ctr-bar-fill" style="width:85px;"></div><span class="ctr-val">1.27%</span></div></td>
+              <td>~$12.7K</td>
+              <td>5</td>
+              <td>⚡ Strong CTR — room to scale with proven results</td>
+            </tr>
+            <tr>
+              <td><strong>Product Demo</strong></td>
+              <td><div class="ctr-bar"><div class="ctr-bar-fill" style="width:60px;"></div><span class="ctr-val">0.90%</span></div></td>
+              <td>~$5K</td>
+              <td>10</td>
+              <td>📦 Solid for mid-funnel education and consideration</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AUDIENCES ===== -->
+  <section id="audiences" class="section">
+    <div class="section-title">
+      <span class="icon">🎯</span>
+      <div>
+        <h2>Audience-by-Sport Creative Patterns</h2>
+        <p>What works for baseball vs. basketball vs. soccer — and why each audience is different</p>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:24px;">
+      <div class="card">
+        <h3>Spend by Sport Segment</h3>
+        <div class="chart-container">
+          <canvas id="sportBreakdownChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <h3>CTR by Sport Segment</h3>
+        <div class="chart-container">
+          <canvas id="sportCtrChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="border-left: 4px solid #e65100;">
+      <h3>⚾ Baseball — Pre-Season Training Mode</h3>
+      <p style="margin-bottom:12px; color:var(--muted); font-size:13px;">Largest spend segment | Technical, skill-enhancement messaging dominates</p>
+      <p>Baseball audiences are currently in <strong>pre-season training mode</strong>, which makes them highly receptive to ads that promise measurable, skill-specific improvements. The top-performing baseball ad — "Throw Harder with Less Effort" — succeeds because it speaks directly to a pitcher's core desire: more power with less strain.</p>
+      <br>
+      <p>What works: <strong>technical hooks</strong> (power, speed, effort reduction), <strong>sport-specific movements</strong> (pitching, sprinting, fielding), and <strong>before/after comparisons</strong>. What doesn't: generic lifestyle messaging or injury prevention alone — baseball athletes want performance gains first.</p>
+    </div>
+
+    <div class="card" style="border-left: 4px solid #2e7d32; margin-top:16px;">
+      <h3>🏀 Basketball — Trust Through Authenticity</h3>
+      <p style="margin-bottom:12px; color:var(--muted); font-size:13px;">Second-largest segment | UGC and testimonials dramatically outperform polished ads</p>
+      <p>Basketball audiences — particularly parents of youth athletes — are in <strong>mid-season mode</strong> and are looking for trusted solutions to help their players perform and stay healthy. The data is unambiguous: the "My Grandsons Review" UGC ad achieves a <strong>10.33% CTR</strong> compared to the segment's average of 0.77%.</p>
+      <br>
+      <p>What works: <strong>authentic peer testimonials</strong>, <strong>family-oriented stories</strong>, and <strong>relatable real-world usage</strong>. Polished product videos perform modestly, but nothing beats a real person sharing a genuine experience. The lesson: for basketball, earn trust before selling performance.</p>
+    </div>
+
+    <div class="card" style="border-left: 4px solid #1565c0; margin-top:16px;">
+      <h3>⚽ Soccer & 🏐 Volleyball — Spring Momentum Building</h3>
+      <p style="margin-bottom:12px; color:var(--muted); font-size:13px;">Emerging segments | High CTR signals strong audience readiness</p>
+      <p>Soccer (1.50% CTR) and Volleyball (1.70% CTR) are punching above their weight. These audiences are <strong>gearing up for spring</strong>, which means they're actively researching gear and are highly receptive to performance messaging. The "Alabama Volleyball" ad's success shows that <strong>collegiate/aspirational association</strong> works particularly well for these sports.</p>
+      <br>
+      <p>What works: <strong>speed and agility messaging</strong>, <strong>team/athlete association</strong>, and <strong>injury prevention</strong> (especially for soccer). These segments are underinvested relative to their engagement rates — a clear opportunity to scale.</p>
+    </div>
+  </section>
+
+  <!-- ===== SEASONAL INTEL ===== -->
+  <section id="seasonal" class="section">
+    <div class="section-title">
+      <span class="icon">📅</span>
+      <div>
+        <h2>Seasonal Creative Intelligence</h2>
+        <p>How the time of year shapes what messages resonate — and what's coming next</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:24px;">
+      <h3>The Seasonal Creative Calendar</h3>
+      <div class="timeline" style="margin-top:16px;">
+        <div class="timeline-item current">
+          <div class="month-tag current">Now — February</div>
+          <h4>Pre-Season Surge (Baseball) + Mid-Season (Basketball)</h4>
+          <p>Baseball athletes are in training mode — power, speed, and skill gains messaging is at peak relevance. Basketball players are mid-season, looking for performance maintenance and injury prevention. <strong>UGC and testimonials are most powerful now</strong> as athletes seek trusted recommendations.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="month-tag upcoming">March — April</div>
+          <h4>Spring Season Launch (Soccer, Lacrosse, Track)</h4>
+          <p>Spring sports ramp up significantly. Shift messaging toward <strong>injury prevention, durability, and full-season performance</strong>. Soccer and volleyball ads should scale. Baseball messaging should transition from pre-season gains to in-season recovery and consistency.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="month-tag upcoming">May — June</div>
+          <h4>Peak Spring + Summer Prep</h4>
+          <p>All spring sports are in full swing. Focus on <strong>tournament performance, recovery, and multi-sport athletes</strong>. Summer training camps begin — target parents and coaches with educational content about long-term athletic development.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="month-tag upcoming">July — August</div>
+          <h4>Fall Sport Pre-Season (Football, Cross Country)</h4>
+          <p>Football pre-season is the biggest opportunity of the year. Begin building football-specific creative assets now. <strong>Back-to-school messaging</strong> for multi-sport teen athletes becomes highly relevant.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Current Themes That Are Working (February)</h3>
+        <ul style="list-style:none; padding:0;">
+          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">🎯 <strong>Pre-season training gains</strong> — "Get ready before the season starts"</li>
+          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">💪 <strong>Effort reduction</strong> — "More power, less strain"</li>
+          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">🤝 <strong>Peer testimonials</strong> — "Real athletes, real results"</li>
+          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">🏷️ <strong>Sale/value offers</strong> — "Gear up for the season at $99"</li>
+          <li style="padding:10px 0; font-size:13px;">🏫 <strong>Collegiate association</strong> — "Used by Alabama Volleyball"</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Themes to Prepare for March/April</h3>
+        <ul style="list-style:none; padding:0;">
+          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">🛡️ <strong>Injury prevention</strong> — "Stay on the field all season"</li>
+          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">⚡ <strong>Speed & agility</strong> — Spring sport performance focus</li>
+          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">🔄 <strong>Recovery & durability</strong> — "Built for a full season"</li>
+          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">👨‍👩‍👧 <strong>Parent-focused messaging</strong> — "Protect your athlete"</li>
+          <li style="padding:10px 0; font-size:13px;">🌱 <strong>Multi-sport athletes</strong> — Spring to summer transitions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <h4>⚠️ The Breakdown Effect — A Note on Data Interpretation</h4>
+      <p>Higher spend on Baseball and Basketball segments does not mean lower-spending segments like Soccer, Volleyball, or UGC formats should be paused. In fact, Soccer (1.50% CTR) and UGC/Testimonials (7.47% CTR) show <strong>higher engagement efficiency</strong> despite lower spend. Always balance scale with efficiency — the best opportunities often lie in underinvested segments with strong engagement signals.</p>
+    </div>
+  </section>
+
+  <!-- ===== RECOMMENDATIONS ===== -->
+  <section id="recommendations" class="section">
+    <div class="section-title">
+      <span class="icon">🚀</span>
+      <div>
+        <h2>Next Week's Creative Recommendations</h2>
+        <p>5 actionable hypotheses to test or scale, grounded in this week's data</p>
+      </div>
+    </div>
+
+    <div class="rec-card">
+      <div class="rec-num">1</div>
+      <div class="rec-body">
+        <h4>Scale UGC/Testimonial Ads in Basketball and Multi-Sport Segments</h4>
+        <div class="hypothesis">"We believe expanding UGC/testimonial creatives will increase CTR and lower CPA because these ads currently achieve 7.47% CTR and strong conversion efficiency with minimal spend — yet represent only ~3% of total ad count."</div>
+      </div>
+    </div>
+
+    <div class="rec-card">
+      <div class="rec-num">2</div>
+      <div class="rec-body">
+        <h4>Launch New Baseball Video Ads Focused on In-Season Injury Prevention</h4>
+        <div class="hypothesis">"We believe shifting messaging from pre-season gains to injury prevention will sustain baseball engagement as the season starts, based on current success of skill-focused videos and the upcoming seasonal shift in athlete mindset."</div>
+      </div>
+    </div>
+
+    <div class="rec-card">
+      <div class="rec-num">3</div>
+      <div class="rec-body">
+        <h4>Increase Spend on Soccer and Volleyball Sport-Specific Videos</h4>
+        <div class="hypothesis">"We believe scaling 'Shown Soccer' and 'Alabama Volleyball' style ads will capture early spring sport momentum, given their 1.50% and 1.70% CTRs significantly outperform the account average and spring sports are ramping up now."</div>
+      </div>
+    </div>
+
+    <div class="rec-card">
+      <div class="rec-num">4</div>
+      <div class="rec-body">
+        <h4>Test Hybrid Sale + Performance Story Ads</h4>
+        <div class="hypothesis">"We believe combining the direct $99 sale offer with a short performance story (video or carousel) will improve CTR and conversion efficiency, inspired by the low CPA of 'Mac $99 Sale' static and the high engagement of performance videos."</div>
+      </div>
+    </div>
+
+    <div class="rec-card">
+      <div class="rec-num">5</div>
+      <div class="rec-body">
+        <h4>Develop Influencer-Led UGC Campaigns Targeting Basketball Youth and Parents</h4>
+        <div class="hypothesis">"We believe influencer UGC will drive trust and engagement because the 'Mac McClung Partnership Ad' shows promising CTR (2.31%) and CPA ($41.49), and the 'Grandsons Review' proves that authentic family-oriented content is our highest-performing creative formula."</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px; background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%); color:#fff; border:none;">
+      <h3 style="color:#fff;">Summary: The Big Picture</h3>
+      <p style="color:rgba(255,255,255,0.85); font-size:14px; line-height:1.7;">Video remains the workhorse for demonstrating performance benefits, but UGC/testimonials punch well above their weight in engagement and efficiency. Baseball players want hard performance gains messaging now, while basketball audiences respond best to authentic peer stories mid-season. Soccer and volleyball ramp-ups are promising, so sport-specific speed and injury prevention stories should be scaled. Tactical price offers work best in static formats to close the sale. Next week, focus on scaling authentic content and seasonally relevant messaging to maintain momentum into spring.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <strong>VKTRY Weekly Creative Intelligence</strong> &bull; Generated February 22, 2026 &bull; Powered by Meta Ads data + AI analysis &bull; Runs every Monday automatically
+</footer>
+
+<script>
+  // ===== NAV TABS =====
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // ===== DATA =====
+  const sportData = {
+    labels: ['Baseball', 'Basketball', 'Unknown', 'Multi-Sport', 'Teen/Multi', 'Soccer', 'Football'],
+    spend: [89200, 71400, 52300, 21800, 14600, 4800, 1600],
+    ctr: [0.82, 0.77, 0.91, 0.68, 0.31, 1.50, 0.55]
+  };
+
+  const formatData = {
+    labels: ['Video', 'Static Image', 'UGC/Testimonial', 'Influencer/UGC', 'Product Demo', 'Carousel'],
+    spend: [217000, 25000, 8000, 12700, 5000, 1800],
+    ctr: [0.84, 0.76, 7.47, 1.27, 0.90, 0.65],
+    count: [380, 50, 8, 5, 10, 3]
+  };
+
+  const topAds = [
+    { name: 'Throw Harder with Less Effort - 9x16 - 11/11', sport: 'Baseball', format: 'Video', spend: 4821, ctr: 0.94, cpm: 18.20 },
+    { name: 'Shown Soccer', sport: 'Soccer', format: 'Video', spend: 3940, ctr: 1.50, cpm: 16.80 },
+    { name: 'Mac $99 Sale - Static 8', sport: 'Unknown', format: 'Static', spend: 3210, ctr: 0.68, cpm: 22.10 },
+    { name: 'My Grandsons Review w/o Copy', sport: 'Basketball', format: 'UGC', spend: 2980, ctr: 10.33, cpm: 14.50 },
+    { name: 'Alabama Volleyball', sport: 'Unknown', format: 'Video', spend: 2760, ctr: 1.70, cpm: 17.90 },
+    { name: 'Founder Explanation Hook 2', sport: 'Unknown', format: 'UGC', spend: 2650, ctr: 2.04, cpm: 15.60 },
+    { name: 'POV Comp - Copy', sport: 'Basketball', format: 'Video', spend: 2480, ctr: 0.33, cpm: 19.40 },
+    { name: 'Rykan Woo', sport: 'Basketball', format: 'Video', spend: 2340, ctr: 0.22, cpm: 21.00 },
+    { name: 'MLK Classic POV Hook 2', sport: 'Basketball', format: 'Video', spend: 2190, ctr: 0.74, cpm: 18.70 },
+    { name: 'Milton BBall Hook 1', sport: 'Basketball', format: 'Video', spend: 2050, ctr: 0.32, cpm: 20.10 },
+  ];
+
+  // ===== POPULATE TABLE =====
+  const tbody = document.getElementById('topAdsTableBody');
+  topAds.forEach((ad, i) => {
+    const sportClass = {
+      'Baseball': 'sport-baseball',
+      'Basketball': 'sport-basketball',
+      'Soccer': 'sport-soccer',
+      'Football': 'sport-football',
+      'Unknown': 'sport-unknown',
+      'Multi-Sport': 'sport-multi'
+    }[ad.sport] || 'sport-unknown';
+
+    const maxCtr = 10.33;
+    const barWidth = Math.max(4, Math.round((ad.ctr / maxCtr) * 120));
+
+    tbody.innerHTML += `
+      <tr>
+        <td style="color:var(--muted); font-weight:700;">${i + 1}</td>
+        <td><div class="ad-name">${ad.name}</div></td>
+        <td><span class="sport-badge ${sportClass}">${ad.sport}</span></td>
+        <td style="font-size:12px; color:var(--muted);">${ad.format}</td>
+        <td style="font-weight:700;">$${ad.spend.toLocaleString()}</td>
+        <td><div class="ctr-bar"><div class="ctr-bar-fill" style="width:${barWidth}px;"></div><span class="ctr-val">${ad.ctr.toFixed(2)}%</span></div></td>
+        <td style="color:var(--muted); font-size:12px;">$${ad.cpm.toFixed(2)}</td>
+      </tr>`;
+  });
+
+  // ===== CHART DEFAULTS =====
+  Chart.defaults.font.family = "'Segoe UI', system-ui, sans-serif";
+  Chart.defaults.font.size = 12;
+  Chart.defaults.color = '#6b7a8d';
+
+  const COLORS = ['#1a4a7a', '#e8a020', '#2ecc71', '#8e44ad', '#1abc9c', '#e74c3c', '#3498db'];
+
+  // ===== SPORT SPEND CHART =====
+  new Chart(document.getElementById('sportSpendChart'), {
+    type: 'bar',
+    data: {
+      labels: sportData.labels,
+      datasets: [{
+        label: 'Spend ($)',
+        data: sportData.spend,
+        backgroundColor: COLORS,
+        borderRadius: 6,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { ticks: { callback: v => '$' + (v/1000).toFixed(0) + 'K' }, grid: { color: '#eee' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // ===== FORMAT SPEND CHART =====
+  new Chart(document.getElementById('formatSpendChart'), {
+    type: 'doughnut',
+    data: {
+      labels: formatData.labels,
+      datasets: [{
+        data: formatData.spend,
+        backgroundColor: COLORS,
+        borderWidth: 2,
+        borderColor: '#fff'
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'right', labels: { boxWidth: 12, padding: 12 } },
+        tooltip: { callbacks: { label: ctx => ` $${(ctx.raw/1000).toFixed(0)}K` } }
+      }
+    }
+  });
+
+  // ===== CTR FORMAT CHART (OVERVIEW) =====
+  new Chart(document.getElementById('ctrFormatChart'), {
+    type: 'bar',
+    data: {
+      labels: formatData.labels,
+      datasets: [{
+        label: 'Avg. CTR (%)',
+        data: formatData.ctr,
+        backgroundColor: formatData.ctr.map(v => v > 2 ? '#e8a020' : v > 1 ? '#2ecc71' : '#1a4a7a'),
+        borderRadius: 6,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { callback: v => v + '%' }, grid: { color: '#eee' } },
+        y: { grid: { display: false } }
+      }
+    }
+  });
+
+  // ===== CTR COMPARISON CHART =====
+  new Chart(document.getElementById('ctrComparisonChart'), {
+    type: 'bar',
+    data: {
+      labels: formatData.labels,
+      datasets: [{
+        label: 'CTR (%)',
+        data: formatData.ctr,
+        backgroundColor: COLORS,
+        borderRadius: 6,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { ticks: { callback: v => v + '%' }, grid: { color: '#eee' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // ===== FORMAT DISTRIBUTION CHART =====
+  new Chart(document.getElementById('formatDistributionChart'), {
+    type: 'pie',
+    data: {
+      labels: formatData.labels,
+      datasets: [{
+        data: formatData.count,
+        backgroundColor: COLORS,
+        borderWidth: 2,
+        borderColor: '#fff'
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'right', labels: { boxWidth: 12, padding: 12 } },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.raw} ads` } }
+      }
+    }
+  });
+
+  // ===== SPORT BREAKDOWN CHART =====
+  new Chart(document.getElementById('sportBreakdownChart'), {
+    type: 'doughnut',
+    data: {
+      labels: sportData.labels,
+      datasets: [{
+        data: sportData.spend,
+        backgroundColor: COLORS,
+        borderWidth: 2,
+        borderColor: '#fff'
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'right', labels: { boxWidth: 12, padding: 12 } },
+        tooltip: { callbacks: { label: ctx => ` $${(ctx.raw/1000).toFixed(0)}K` } }
+      }
+    }
+  });
+
+  // ===== SPORT CTR CHART =====
+  new Chart(document.getElementById('sportCtrChart'), {
+    type: 'bar',
+    data: {
+      labels: sportData.labels,
+      datasets: [{
+        label: 'CTR (%)',
+        data: sportData.ctr,
+        backgroundColor: sportData.ctr.map(v => v > 1 ? '#e8a020' : '#1a4a7a'),
+        borderRadius: 6,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { ticks: { callback: v => v + '%' }, grid: { color: '#eee' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+</script>
+</body>
+</html>
