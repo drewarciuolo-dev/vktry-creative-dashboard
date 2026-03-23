@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VKTRY Weekly Creative Insights — Mar 16, 2026</title>
+  <title>VKTRY Weekly Creative Insights — Mar 23, 2026</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <style>
     :root {
@@ -98,27 +98,31 @@
     nav button {
       background: none;
       border: none;
-      padding: 14px 18px;
+      padding: 16px 20px;
       font-size: 13px;
       font-weight: 600;
       color: var(--muted);
       cursor: pointer;
-      border-bottom: 3px solid transparent;
       white-space: nowrap;
+      border-bottom: 3px solid transparent;
       transition: all 0.2s;
     }
     nav button:hover { color: var(--blue); }
     nav button.active {
       color: var(--blue);
-      border-bottom-color: var(--accent);
+      border-bottom-color: var(--blue);
     }
 
     /* ===== MAIN CONTENT ===== */
-    main { max-width: 1200px; margin: 0 auto; padding: 32px 16px 64px; }
+    main {
+      max-width: 1100px;
+      margin: 32px auto;
+      padding: 0 24px;
+    }
     .section { display: none; }
-    .section.active { display: block; }
+    .section.active { display: block; animation: fadeIn 0.4s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* ===== SECTION TITLE ===== */
     .section-title {
       display: flex;
       align-items: center;
@@ -126,107 +130,85 @@
       margin-bottom: 24px;
     }
     .section-title .icon {
-      font-size: 28px;
+      width: 40px;
+      height: 40px;
+      background: var(--blue);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      font-size: 20px;
     }
-    .section-title h2 {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--navy);
-    }
-    .section-title p {
-      font-size: 14px;
-      color: var(--muted);
-      margin-top: 2px;
-    }
+    .section-title h2 { font-size: 22px; font-weight: 800; color: var(--navy); }
+    .section-title p { font-size: 14px; color: var(--muted); }
 
     /* ===== CARDS ===== */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
     .card {
       background: var(--card);
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
       border: 1px solid var(--border);
-      margin-bottom: 20px;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      margin-bottom: 24px;
     }
-    .card h3 {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 16px;
-    }
+    .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 16px; color: var(--navy); display: flex; align-items: center; gap: 8px; }
 
-    /* ===== GRID ===== */
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-
-    /* ===== METRIC CARDS ===== */
     .metric-card {
       background: var(--card);
-      border-radius: 12px;
-      padding: 20px;
       border: 1px solid var(--border);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: 16px;
+      padding: 20px;
       text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
     }
-    .metric-card .value {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--navy);
-      margin-bottom: 4px;
-    }
-    .metric-card .label {
-      font-size: 12px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    }
-    .metric-card .change {
-      font-size: 12px;
-      font-weight: 600;
-      margin-top: 6px;
-    }
-    .change.up { color: var(--green); }
-    .change.down { color: var(--red); }
+    .metric-card .value { font-size: 24px; font-weight: 800; color: var(--blue); margin-bottom: 4px; }
+    .metric-card .label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .metric-card .change { font-size: 11px; margin-top: 6px; font-weight: 700; }
+    .metric-card .change.up { color: var(--green); }
+    .metric-card .change.down { color: var(--red); }
 
-    /* ===== TOP ADS TABLE ===== */
-    .ad-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    /* ===== TABLES ===== */
+    .ad-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
     .ad-table th {
-      background: var(--light);
-      padding: 10px 14px;
       text-align: left;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
+      padding: 12px 16px;
+      background: var(--light);
       color: var(--muted);
-      border-bottom: 2px solid var(--border);
-    }
-    .ad-table td {
-      padding: 12px 14px;
-      border-bottom: 1px solid var(--border);
-      vertical-align: middle;
-    }
-    .ad-table tr:hover td { background: #f8faff; }
-    .ad-table tr:last-child td { border-bottom: none; }
-    .ad-name { font-weight: 600; color: var(--navy); max-width: 220px; }
-    .sport-badge {
-      display: inline-block;
-      padding: 3px 10px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 700;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      font-size: 11px;
     }
-    .sport-baseball { background: #fff3e0; color: #e65100; }
-    .sport-basketball { background: #e8f5e9; color: #2e7d32; }
+    .ad-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .ad-table tr:last-child td { border-bottom: none; }
+    .ad-name { font-weight: 600; color: var(--navy); }
+    .sport-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .sport-basketball { background: #fff3e0; color: #e65100; }
+    .sport-baseball { background: #e8f5e9; color: #2e7d32; }
     .sport-soccer { background: #e3f2fd; color: #1565c0; }
     .sport-volleyball { background: #f3e5f5; color: #6a1b9a; }
-    .sport-brand { background: #e0f2f1; color: #00695c; }
-    .sport-football { background: #fce4ec; color: #880e4f; }
-    .sport-multi { background: #f3e5f5; color: #6a1b9a; }
-    .sport-unknown { background: #eceff1; color: #546e7a; }
+    .sport-brand { background: #fce4ec; color: #c2185b; }
+    .sport-football { background: #efebe9; color: #4e342e; }
+    .sport-unknown { background: #f5f5f5; color: #616161; }
+
     .ctr-bar {
       display: flex;
       align-items: center;
@@ -234,113 +216,101 @@
     }
     .ctr-bar-fill {
       height: 6px;
+      background: var(--blue);
       border-radius: 3px;
-      background: linear-gradient(90deg, var(--blue), var(--accent));
-      min-width: 4px;
     }
-    .ctr-val { font-size: 12px; font-weight: 700; color: var(--blue); }
+    .ctr-val { font-weight: 700; color: var(--navy); min-width: 40px; }
 
     /* ===== PERFORMER CARDS ===== */
     .performer-card {
       background: var(--card);
-      border-radius: 12px;
-      padding: 20px;
       border: 1px solid var(--border);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      border-left: 4px solid var(--accent);
-      margin-bottom: 16px;
+      border-left: 6px solid var(--accent);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
     .performer-card .rank {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
-      text-transform: uppercase;
       color: var(--accent);
+      text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 6px;
-    }
-    .performer-card h4 {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--navy);
       margin-bottom: 8px;
     }
+    .performer-card h4 { font-size: 20px; font-weight: 800; margin-bottom: 12px; color: var(--navy); }
     .performer-card .meta {
       display: flex;
-      gap: 12px;
+      gap: 16px;
+      margin-bottom: 20px;
       flex-wrap: wrap;
-      margin-bottom: 12px;
     }
     .performer-card .meta span {
       font-size: 12px;
+      font-weight: 600;
       color: var(--muted);
       background: var(--light);
-      padding: 3px 10px;
-      border-radius: 20px;
+      padding: 4px 12px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .performer-card p {
-      font-size: 13px;
-      color: var(--text);
-      line-height: 1.6;
-    }
+    .performer-card p { font-size: 14px; color: var(--text); margin-bottom: 16px; }
     .performer-card .insight-label {
       font-size: 11px;
       font-weight: 700;
+      color: var(--blue);
       text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--muted);
-      margin-top: 10px;
-      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+      margin-top: 16px;
     }
 
-    /* ===== RECOMMENDATION CARDS ===== */
+    /* ===== RECOMMENDATIONS ===== */
     .rec-card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 20px;
-      border: 1px solid var(--border);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      margin-bottom: 16px;
       display: flex;
-      gap: 16px;
+      gap: 20px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 16px;
     }
-    .rec-card .rec-num {
-      width: 36px;
-      height: 36px;
+    .rec-num {
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      color: var(--navy);
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--navy), var(--blue));
-      color: #fff;
-      font-size: 16px;
-      font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-weight: 800;
       flex-shrink: 0;
     }
-    .rec-card .rec-body h4 {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-    .rec-card .rec-body .hypothesis {
-      font-size: 13px;
-      color: var(--text);
-      background: #f0f4ff;
-      border-left: 3px solid var(--blue);
-      padding: 10px 14px;
-      border-radius: 0 8px 8px 0;
+    .rec-body h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
+    .rec-body p { font-size: 14px; color: var(--muted); }
+    .hypothesis {
+      margin-top: 12px;
+      padding: 12px 16px;
+      background: var(--light);
+      border-radius: 8px;
       font-style: italic;
+      font-size: 13px;
+      border-left: 3px solid var(--accent);
     }
 
     /* ===== SEASONAL TIMELINE ===== */
     .timeline {
       position: relative;
-      padding-left: 24px;
+      padding-left: 30px;
     }
     .timeline::before {
       content: '';
       position: absolute;
-      left: 8px;
+      left: 4px;
       top: 0;
       bottom: 0;
       width: 2px;
@@ -422,22 +392,22 @@
 <header>
   <div class="badge">Weekly Creative Intelligence</div>
   <h1>VKTRY Performance Dashboard</h1>
-  <p>Week of Mar 9 – Mar 15, 2026 &bull; 305 active ads across 3 campaigns &bull; Powered by Meta Ads data + AI analysis</p>
+  <p>Week of Mar 16 – Mar 22, 2026 &bull; 380 active ads across 3 campaigns &bull; Powered by Meta Ads data + AI analysis</p>
   <div class="header-stats">
     <div class="header-stat">
-      <div class="num">$93.6K</div>
+      <div class="num">$107.0K</div>
       <div class="lbl">Total Spend</div>
     </div>
     <div class="header-stat">
-      <div class="num">7.15%</div>
+      <div class="num">11.29%</div>
       <div class="lbl">Best CTR (My Grandsons Review)</div>
     </div>
     <div class="header-stat">
-      <div class="num">$46.96</div>
-      <div class="lbl">Best CPP (3/5-Fairfield Mens Lax)</div>
+      <div class="num">$25.55</div>
+      <div class="lbl">Best CPP (Chris Brickley Partnership)</div>
     </div>
     <div class="header-stat">
-      <div class="num">1,516</div>
+      <div class="num">2,114</div>
       <div class="lbl">Total Purchases</div>
     </div>
   </div>
@@ -460,25 +430,25 @@
       <span class="icon">&#x1F4CA;</span>
       <div>
         <h2>Weekly Performance Overview</h2>
-        <p>305 ads &bull; $93,556 total spend &bull; 13.6M impressions &bull; 1,516 purchases &bull; Mar 9–15, 2026</p>
+        <p>380 ads &bull; $106,957 total spend &bull; 16.3M impressions &bull; 2,114 purchases &bull; Mar 16–22, 2026</p>
       </div>
     </div>
 
     <div class="grid-4" style="margin-bottom:24px;">
       <div class="metric-card">
-        <div class="value">$93.6K</div>
+        <div class="value">$107.0K</div>
         <div class="label">Total Spend</div>
       </div>
       <div class="metric-card">
-        <div class="value">1.09%</div>
+        <div class="value">1.00%</div>
         <div class="label">Overall CTR</div>
       </div>
       <div class="metric-card">
-        <div class="value">$6.88</div>
+        <div class="value">$6.56</div>
         <div class="label">Overall CPM</div>
       </div>
       <div class="metric-card">
-        <div class="value">$61.71</div>
+        <div class="value">$50.59</div>
         <div class="label">Overall CPP</div>
       </div>
     </div>
@@ -537,88 +507,88 @@
     </div>
 
     <div class="performer-card">
-      <div class="rank">#1 Top Performer — Highest Spend ($8,987) + 148 Purchases</div>
-      <h4>Strategy Red Volleyball</h4>
+      <div class="rank">#1 Top Performer — Highest Spend ($10,368) + 232 Purchases</div>
+      <h4>$45 Off Basketball Static</h4>
       <div class="meta">
-        <span>&#x1F3D0; Volleyball</span>
-        <span>&#x1F3AC; Video</span>
-        <span>1.18% CTR</span>
-        <span>$60.72 CPP</span>
+        <span>&#x1F3C0; Basketball</span>
+        <span>&#x1F5BC; Static</span>
+        <span>0.64% CTR</span>
+        <span>$44.69 CPP</span>
       </div>
       <div class="insight-label">What the Creative Is</div>
-      <p>This video ad leverages a strong visual hook featuring dynamic volleyball action paired with clear branding and product placement. The pacing is fast, matching the sport's energy, and the messaging emphasizes performance enhancement, which resonates well with competitive athletes. The video format allows for vivid demonstration of product benefits, increasing viewer engagement.</p>
-      <div class="insight-label">Who It Resonates With & Why</div>
-      <p>Volleyball players in active indoor club season, coaches, and competitive athletes. With $8,987 spent, the ad delivered 148 purchases at a CPP of $60.72, slightly better than the overall average. The CTR of 1.18% indicates solid engagement from volleyball enthusiasts, supported by a moderately high CPM ($10.97) reflecting competitive auction dynamics for this segment.</p>
+      <p>A clean, offer-driven static ad leveraging a direct $45 discount message paired with basketball imagery. The creative's simplicity and bold call-to-action cut through the feed effectively, particularly for price-sensitive consumers motivated by immediate savings. The static format benefits from low production cost and fast iteration cycles, making it ideal for discount-driven campaigns.</p>
+      <div class="insight-label">Who It Resonates With &amp; Why</div>
+      <p>Basketball players and parents during March Madness season, drawn to the clear value proposition. With $10,368 spent, the ad delivered 232 purchases at a CPP of $44.69 — the best CPP among top spenders — and a CPM of $10.46. The modest CTR (0.64%) reflects awareness-focused engagement, but the strong conversion rate post-click confirms the offer's effectiveness with motivated buyers.</p>
       <div class="insight-label">Creative Principle</div>
-      <p><strong>Visual identity + sport specificity = efficient conversion.</strong> Hypothesize that creating shorter cutdowns (6–10 seconds) focusing on key performance moments (e.g., jumps, spikes) could boost CTR and lower CPM. Test iteration with athlete testimonials layered over action clips to deepen emotional connection and further improve CPP.</p>
+      <p><strong>Offer clarity + static efficiency = highest purchase volume.</strong> Hypothesize that testing animated GIF variants of this static with subtle motion (e.g., bouncing ball or flashing discount badge) could increase CTR by 15% while maintaining CPP efficiency. Testing sport-specific variants (soccer, lacrosse) with the same discount mechanic could expand reach beyond basketball.</p>
     </div>
 
     <div class="performer-card" style="border-left-color: var(--teal);">
-      <div class="rank" style="color:var(--teal);">#2 Top Performer — 148 Purchases + Best Baseball CPP ($59.99)</div>
-      <h4>Throw Harder with Less Effort — 9x16 — 11/11</h4>
+      <div class="rank" style="color:var(--teal);">#2 Top Performer — 131 Purchases + Best CPP in Top 10 ($34.80)</div>
+      <h4>Up to 30% Off Static 2</h4>
       <div class="meta">
-        <span>&#x26BE; Baseball</span>
-        <span>&#x1F3AC; Video</span>
-        <span>0.95% CTR</span>
-        <span>$59.99 CPP</span>
+        <span>&#x1F3C6; Other Sports</span>
+        <span>&#x1F5BC; Static</span>
+        <span>0.63% CTR</span>
+        <span>$34.80 CPP</span>
       </div>
       <div class="insight-label">What the Creative Is</div>
-      <p>This baseball video uses benefit-driven messaging centered on increasing throwing power with less exertion, a strong pain point for players. The vertical 9x16 format caters to mobile-first environments like Instagram Stories and TikTok, making it highly relevant for younger audiences. Visuals emphasize technique and insole technology clearly.</p>
-      <div class="insight-label">Who It Resonates With & Why</div>
-      <p>Baseball players in early season training, coaches, and serious athletes focused on measurable power and efficiency gains. At $59.99 CPP and 148 purchases on $8,878 spend, this is one of the most cost-effective ads in the portfolio. The functional benefit message resonates strongly during pre-season with a competitive CPM of $9.18.</p>
+      <p>A discount-focused static ad targeting multi-sport and niche audiences with a clear "Up to 30% Off" value message. The creative leverages straightforward offer mechanics with sport-agnostic visuals, making it broadly applicable across VKTRY's diverse audience segments. The static format enables efficient delivery at scale with minimal creative overhead.</p>
+      <div class="insight-label">Who It Resonates With &amp; Why</div>
+      <p>Broad athletic audience across niche and multi-sport segments, motivated by price and value. Despite a low CTR (0.63%), this ad achieves the best CPP in the entire top 10 at $34.80, with 131 purchases on $4,558 spend. The CPM of $13.08 is slightly elevated, but the exceptional conversion efficiency more than compensates. This suggests the "Other" sports audience is highly purchase-intent-driven when presented with a clear discount offer.</p>
       <div class="insight-label">Creative Principle</div>
-      <p><strong>Benefit-driven specificity delivers the best CPP.</strong> Hypothesize that layering UGC testimonials or "before and after" clips alongside the existing video could increase authenticity and CTR. Testing messaging focused on injury prevention might also broaden appeal within baseball audiences during the spring season ramp-up.</p>
+      <p><strong>Broad offer + low friction = best CPP in the account.</strong> Hypothesize that adding sport-specific customizations (e.g., lacrosse, track, swimming visuals) to this offer template will increase CTR by 20% while maintaining or improving CPP. Testing video variants with the same discount mechanic could reveal whether richer storytelling drives incremental conversions in these niche segments.</p>
     </div>
 
     <div class="performer-card" style="border-left-color: var(--purple);">
-      <div class="rank" style="color:var(--purple);">#3 Top Performer — 139 Purchases + Highest CTR Among Top Spenders (1.65%)</div>
+      <div class="rank" style="color:var(--purple);">#3 Top Performer — 106 Purchases + Highest CTR Among Top Spenders (1.93%)</div>
       <h4>Shown Soccer</h4>
       <div class="meta">
         <span>&#x26BD; Soccer/Lacrosse</span>
         <span>&#x1F3AC; Video</span>
-        <span>1.65% CTR</span>
-        <span>$60.49 CPP</span>
+        <span>1.93% CTR</span>
+        <span>$42.99 CPP</span>
       </div>
       <div class="insight-label">What the Creative Is</div>
-      <p>A professionally produced video that combines high-quality soccer footage with clear product storytelling. The narrative focuses on improved speed and endurance, core motivators for soccer and lacrosse players. The "Shown" label indicates polished editing and sound design, which helps elevate brand perception and drive viewer engagement.</p>
-      <div class="insight-label">Who It Resonates With & Why</div>
-      <p>This ad commands the highest CTR among top spenders at 1.65%, indicating strong viewer engagement. With $8,408 spent and 139 purchases, CPP is competitive at $60.49 despite a high CPM ($15.19), suggesting premium inventory targeting. The soccer/lacrosse segment shows a loyal and responsive audience during active spring season.</p>
+      <p>A professionally produced video combining high-quality soccer footage with clear product storytelling focused on speed and endurance. The "Shown" label indicates polished editing and sound design that elevates brand perception. The dynamic pacing matches the sport's intensity and the narrative arc from problem (fatigue, slower performance) to solution (VKTRY insoles) creates compelling viewer engagement.</p>
+      <div class="insight-label">Who It Resonates With &amp; Why</div>
+      <p>Soccer players and parents during the active spring season, when performance gains are most relevant. With $4,557 spent and 106 purchases at $42.99 CPP, this ad delivers strong efficiency. The 1.93% CTR is the highest among top spenders this week, and the CPM of $16.07 reflects premium inventory but is justified by the engagement and conversion rates. The soccer/lacrosse segment shows a loyal and highly responsive audience.</p>
       <div class="insight-label">Creative Principle</div>
-      <p><strong>Sport-specific professional video storytelling at scale.</strong> Hypothesize that segmenting ads by soccer position (e.g., forwards vs. defenders) with tailored messaging could increase relevance and conversion. Additionally, testing shorter versions optimized for reels could capitalize on social platform trends and reduce CPM.</p>
+      <p><strong>Sport-specific professional video storytelling = highest CTR in top 10.</strong> Hypothesize that segmenting ads by soccer position (forwards vs. defenders vs. midfielders) with tailored messaging could increase relevance and lower CPP by 10%. Testing shorter 15-second reels-optimized versions could reduce CPM while maintaining the strong CTR signal.</p>
     </div>
 
     <div class="performer-card" style="border-left-color: var(--green);">
-      <div class="rank" style="color:var(--green);">#4 Top Performer — 1.73% CTR + 77 Purchases</div>
-      <h4>Shown 3.3 Remakes — Wait What Guy</h4>
+      <div class="rank" style="color:var(--green);">#4 Top Performer — 11.29% CTR (Account Best) + 20 Purchases</div>
+      <h4>My Grandsons Review w/o Copy</h4>
       <div class="meta">
-        <span>&#x1F3AF; Brand Storyline</span>
+        <span>&#x1F3C0; Basketball</span>
         <span>&#x1F3AC; Video</span>
-        <span>1.73% CTR</span>
-        <span>$67.05 CPP</span>
+        <span>11.29% CTR</span>
+        <span>$219.28 CPP</span>
       </div>
       <div class="insight-label">What the Creative Is</div>
-      <p>A brand storyline video featuring a humorous and relatable hook ("Wait What Guy") that draws attention and builds brand personality. The professional video quality complements the narrative, making the ad distinctive in the feed and driving both engagement and conversions. The creative hook leverages curiosity to encourage watch time, increasing message absorption.</p>
-      <div class="insight-label">Who It Resonates With & Why</div>
-      <p>Broad athletic audience appreciating a lighter, more entertaining approach alongside product messaging. With a strong 1.73% CTR and $67.05 CPP from $5,163 spend, this ad effectively combines brand storytelling with performance — 77 purchases demonstrate solid conversion for a brand-focused narrative. CPM of $14.64 is slightly elevated, reflecting premium inventory, but the engagement suggests strong brand affinity building.</p>
+      <p>A video ad featuring an authentic grandparent review of VKTRY insoles for their basketball-playing grandchild, presented without overlay copy. The absence of text allows the raw emotional authenticity of the testimonial to serve as the primary message, creating curiosity and deep engagement. The intergenerational angle is distinctive in a category dominated by athlete-focused content.</p>
+      <div class="insight-label">Who It Resonates With &amp; Why</div>
+      <p>Basketball parents and family members during March Madness season, drawn to the authentic intergenerational story. The 11.29% CTR is the highest in the entire account this week, demonstrating extraordinary hook power. However, the CPP of $219.28 on 20 purchases from $4,386 spend signals a significant engagement-to-conversion gap. The audience is captivated but the purchase funnel needs optimization — likely a targeting or landing page alignment issue.</p>
       <div class="insight-label">Creative Principle</div>
-      <p><strong>Humor + brand personality = engagement premium.</strong> Hypothesize that expanding this narrative into a series format could increase viewer retention and repeat engagement. Testing shorter teaser clips for paid social could drive higher CTRs and extend reach without inflating CPP.</p>
+      <p><strong>Authentic emotion = account-best CTR, but conversion needs optimization.</strong> Hypothesize that retargeting viewers of this ad with a direct-response follow-up ad featuring a discount offer will reduce CPP by 40%+, converting the high engagement into purchases. Testing a version with a clear CTA overlay or end-screen could also improve the click-to-purchase rate significantly.</p>
     </div>
 
     <div class="performer-card" style="border-left-color: #e74c3c;">
-      <div class="rank" style="color:#e74c3c;">#5 Top Performer — 82 Purchases + Best CPP Among Top 5 ($46.96)</div>
-      <h4>3/5-Fairfield Mens Lax</h4>
+      <div class="rank" style="color:#e74c3c;">#5 Top Performer — 90 Purchases + Best CPP in Top 5 ($25.55)</div>
+      <h4>Chris Brickley Partnership Ad</h4>
       <div class="meta">
-        <span>&#x26BD; Soccer/Lacrosse</span>
+        <span>&#x1F3C0; Basketball</span>
         <span>&#x1F3AC; Video</span>
-        <span>1.43% CTR</span>
-        <span>$46.96 CPP</span>
+        <span>0.81% CTR</span>
+        <span>$25.55 CPP</span>
       </div>
       <div class="insight-label">What the Creative Is</div>
-      <p>This video ad focuses on lacrosse athletes with sport-specific visuals and messaging emphasizing agility and injury prevention. The pacing evokes game intensity and urgency, with clear calls to action. The professional video format enhances credibility and the Fairfield branding adds authenticity through real team association.</p>
-      <div class="insight-label">Who It Resonates With & Why</div>
-      <p>Lacrosse athletes and their parents during active spring season. With $3,850 spent, the ad generated 82 purchases at an excellent CPP of $46.96 — the lowest among top spenders — and a solid CTR of 1.43%. CPM at $12.52 indicates moderately competitive media costs. This suggests effective targeting and creative alignment with the lacrosse community.</p>
+      <p>A partnership video featuring Chris Brickley, a well-known NBA skills trainer, lending credibility and aspirational appeal to VKTRY insoles. The professional video format combines Brickley's training expertise with product demonstration, creating a trust-building narrative that resonates with serious basketball players seeking a competitive edge. The partnership format bridges influencer authenticity with brand messaging.</p>
+      <div class="insight-label">Who It Resonates With &amp; Why</div>
+      <p>Serious basketball players and aspiring athletes who follow NBA skills trainers and elite performance content. With $2,300 spent and 90 purchases at a CPP of $25.55 — the best CPP in the entire top 5 — this ad demonstrates exceptional conversion efficiency. The 0.81% CTR is modest but the post-click conversion rate is outstanding, suggesting highly qualified traffic from a credible source.</p>
       <div class="insight-label">Creative Principle</div>
-      <p><strong>Team-specific authenticity drives the best CPP.</strong> Hypothesize that testing localized versions featuring known lacrosse clubs or regional athletes could deepen resonance. Additionally, experimenting with UGC-style testimonials from lacrosse players might boost authenticity and CTR by 10–15%.</p>
+      <p><strong>Expert credibility + sport authority = best CPP in the top 5.</strong> Hypothesize that scaling budget on this ad by 3–5x will maintain CPP efficiency while significantly increasing purchase volume during March Madness. Testing similar partnership formats with other sport-specific trainers (baseball pitching coaches, soccer skills trainers) could replicate this formula across segments.</p>
     </div>
   </section>
 
@@ -634,19 +604,19 @@
 
     <div class="grid-3" style="margin-bottom:24px;">
       <div class="metric-card">
-        <div class="value" style="color:var(--blue);">1.12%</div>
+        <div class="value" style="color:var(--blue);">1.13%</div>
         <div class="label">Video Avg. CTR</div>
-        <div class="change up">77.4% of total spend</div>
+        <div class="change up">60.1% of total spend</div>
       </div>
       <div class="metric-card">
-        <div class="value" style="color:var(--accent);">1.76%</div>
+        <div class="value" style="color:var(--accent);">2.76%</div>
         <div class="label">Influencer Avg. CTR</div>
-        <div class="change up">Highest CTR format — 1.1% of spend</div>
+        <div class="change up">Highest CTR format — 2.0% of spend</div>
       </div>
       <div class="metric-card">
-        <div class="value" style="color:var(--muted);">0.81%</div>
+        <div class="value" style="color:var(--muted);">0.65%</div>
         <div class="label">Static Avg. CTR</div>
-        <div class="change">9.2% of total spend</div>
+        <div class="change up">28.4% of total spend</div>
       </div>
     </div>
 
@@ -682,43 +652,43 @@
           <tbody>
             <tr>
               <td><strong>Video</strong></td>
-              <td><div class="ctr-bar"><div class="ctr-bar-fill" style="width:75px;"></div><span class="ctr-val">1.12%</span></div></td>
-              <td>$72.4K</td>
-              <td>156</td>
-              <td>1,213</td>
-              <td>&#x2705; Workhorse — 77.4% of spend, best for storytelling and sport-specific demos</td>
-            </tr>
-            <tr>
-              <td><strong>UGC</strong></td>
-              <td><div class="ctr-bar"><div class="ctr-bar-fill" style="width:79px;"></div><span class="ctr-val">1.18%</span></div></td>
-              <td>$10.5K</td>
-              <td>40</td>
-              <td>155</td>
-              <td>&#x1F50D; Solid engagement — UGC now matching Video CTR; optimize targeting for better CPP</td>
+              <td><div class="ctr-bar"><div class="ctr-bar-fill" style="width:12px;"></div><span class="ctr-val">1.13%</span></div></td>
+              <td>$64.3K</td>
+              <td>213</td>
+              <td>1,222</td>
+              <td>&#x2705; Workhorse — 60.1% of spend, best for storytelling and sport-specific demos</td>
             </tr>
             <tr>
               <td><strong>Static Image</strong></td>
-              <td><div class="ctr-bar"><div class="ctr-bar-fill" style="width:54px;"></div><span class="ctr-val">0.81%</span></div></td>
-              <td>$8.6K</td>
-              <td>67</td>
-              <td>132</td>
-              <td>&#x2139;&#xFE0F; Solid mid-tier — useful for retargeting and quick-scroll placements</td>
+              <td><div class="ctr-bar"><div class="ctr-bar-fill" style="width:7px;"></div><span class="ctr-val">0.65%</span></div></td>
+              <td>$30.4K</td>
+              <td>76</td>
+              <td>682</td>
+              <td>&#x1F4B0; Efficiency King — Lower CTR but best CPP ($44.55) for discount offers</td>
+            </tr>
+            <tr>
+              <td><strong>UGC</strong></td>
+              <td><div class="ctr-bar"><div class="ctr-bar-fill" style="width:12px;"></div><span class="ctr-val">1.12%</span></div></td>
+              <td>$10.1K</td>
+              <td>45</td>
+              <td>172</td>
+              <td>&#x1F50D; Solid engagement — Matching Video CTR; optimize targeting for better CPP</td>
             </tr>
             <tr>
               <td><strong>Influencer</strong></td>
-              <td><div class="ctr-bar"><div class="ctr-bar-fill" style="width:118px;"></div><span class="ctr-val">1.76%</span></div></td>
-              <td>$1.0K</td>
-              <td>25</td>
-              <td>16</td>
-              <td>&#x1F680; Highest CTR format — needs scale to validate CPP efficiency</td>
+              <td><div class="ctr-bar"><div class="ctr-bar-fill" style="width:29px;"></div><span class="ctr-val">2.76%</span></div></td>
+              <td>$2.1K</td>
+              <td>30</td>
+              <td>38</td>
+              <td>&#x1F680; Highest CTR format — Credibility drives conversion (Brickley ad)</td>
             </tr>
             <tr>
               <td><strong>Story Post</strong></td>
-              <td><div class="ctr-bar"><div class="ctr-bar-fill" style="width:70px;"></div><span class="ctr-val">1.05%</span></div></td>
-              <td>$1.0K</td>
-              <td>17</td>
+              <td><div class="ctr-bar"><div class="ctr-bar-fill" style="width:10px;"></div><span class="ctr-val">0.94%</span></div></td>
+              <td>$0.1K</td>
+              <td>16</td>
               <td>0</td>
-              <td>&#x1F9EA; Testing phase — decent CTR but zero purchases; needs creative or targeting overhaul</td>
+              <td>&#x1F9EA; Testing phase — Decent CTR but zero purchases this week</td>
             </tr>
           </tbody>
         </table>
@@ -752,43 +722,35 @@
     </div>
 
     <div class="card" style="border-left: 4px solid #e65100;">
-      <h3>&#x26BE; Baseball — Spring Season Powerhouse</h3>
-      <p style="margin-bottom:12px; color:var(--muted); font-size:13px;">Largest spend segment ($26.4K) | 44 active ads | 1.11% avg CTR | 456 purchases | $57.97 CPP</p>
-      <p>Baseball leads the account in purchases (456) and spend efficiency, fueled by the onset of the spring season. The "Throw Harder with Less Effort" video drives 148 purchases at $59.99 CPP, demonstrating that technical performance hooks — power, velocity, effort reduction — resonate strongly during spring training. The segment's 1.11% CTR is above the account average.</p>
+      <h3>&#x1F3C0; Basketball — Dominant Volume Play</h3>
+      <p style="margin-bottom:12px; color:var(--muted); font-size:13px;">Largest spend segment ($34.0K) | 151 active ads | 0.93% avg CTR | 645 purchases | $52.68 CPP</p>
+      <p>Basketball remains the largest spend and purchase driver, benefiting from March Madness interest. While CTR is moderate (0.93%), the purchase volume is the account's highest. Static discount ads like the "$45 Off Basketball Static" (232 purchases) are anchoring the vertical's efficiency.</p>
       <br>
-      <p>What works: <strong>technical performance hooks</strong> (power, velocity, effort reduction), <strong>sport-specific movements</strong> (pitching, sprinting), and <strong>vertical 9x16 format</strong> for mobile-first audiences. As the season progresses, begin testing <strong>injury prevention and durability</strong> messaging to maintain relevance through the full season.</p>
+      <p>What works: <strong>Direct discount static ads</strong>, <strong>expert trainer partnerships</strong> (Brickley), and <strong>authentic family stories</strong> (Grandsons Review). With the tournament underway, continuing to push high-credibility and high-value messaging is the priority.</p>
     </div>
 
     <div class="card" style="border-left: 4px solid #2e7d32; margin-top:16px;">
-      <h3>&#x1F3C0; Basketball — Volume Play with March Madness Approaching</h3>
-      <p style="margin-bottom:12px; color:var(--muted); font-size:13px;">2nd largest segment ($19.2K) | 122 active ads | 0.82% avg CTR | 257 purchases | $74.62 CPP</p>
-      <p>Basketball has the most active ads (122) but the lowest CTR (0.82%) and highest CPP ($74.62) of any major segment. With March Madness beginning March 19, this is a critical window for creative refresh. "My Grandsons Review w/o Copy" achieves a remarkable 7.15% CTR, signaling that authentic, emotion-driven hooks can cut through the noise even without copy.</p>
+      <h3>&#x26BE; Baseball — Spring Season Performance</h3>
+      <p style="margin-bottom:12px; color:var(--muted); font-size:13px;">$20.6K spend | 44 active ads | 1.11% avg CTR | 369 purchases | $55.77 CPP</p>
+      <p>Baseball shows strong CTR (1.11%) and consistent purchase volume as the spring season kicks into full swing. Video formats emphasizing technical benefits like "Throw Harder with Less Effort" (53 purchases) continue to resonate with athletes seeking measurable gains during early-season play.</p>
       <br>
-      <p>What works: <strong>authentic peer testimonials</strong>, <strong>emotion-driven hooks without copy</strong>, and <strong>family-oriented stories</strong>. With the tournament starting this week, launch tournament-tailored creatives capturing fan energy and player aspirations. Transitioning messaging toward <strong>March Madness performance</strong> and <strong>spring sport crossover athletes</strong> is the highest-leverage move now.</p>
+      <p>What works: <strong>Technical benefit messaging</strong> (velocity, power), <strong>sport-specific movement visuals</strong>, and <strong>vertical video formats</strong>. Transitioning toward durability and injury prevention messaging as the season matures is recommended.</p>
     </div>
 
     <div class="card" style="border-left: 4px solid #6a1b9a; margin-top:16px;">
-      <h3>&#x1F3D0; Volleyball — Club Season Efficiency Leader</h3>
-      <p style="margin-bottom:12px; color:var(--muted); font-size:13px;">$18.8K spend | 45 active ads | 1.54% avg CTR | 298 purchases | $63.25 CPP</p>
-      <p>Volleyball surges to the #1 ad by spend this week with "Strategy Red Volleyball" delivering 148 purchases at $60.72 CPP. "Alabama Volleyball" achieves 2.32% CTR through aspirational collegiate association, while "NEQ Go Pro Volleyball" (UGC) hits 2.62% CTR — the highest in the top 10. Club season is driving strong engagement and purchase intent across the segment.</p>
+      <h3>&#x1F3D0; Volleyball — Highest Engagement Efficiency</h3>
+      <p style="margin-bottom:12px; color:var(--muted); font-size:13px;">$11.0K spend | 38 active ads | 1.97% avg CTR | 200 purchases | $55.21 CPP</p>
+      <p>Volleyball leads the account in engagement with a 1.97% avg CTR. The club season is driving intense interest, particularly for high-energy video content. While spend is lower than basketball/baseball, the engagement signal is the strongest in the portfolio, suggesting significant room to scale.</p>
       <br>
-      <p>What works: <strong>instructional and strategy-focused creatives</strong>, <strong>collegiate/aspirational association</strong>, and <strong>bold visual identity</strong>. The 1.54% avg CTR is the second-highest among sports segments. This is the optimal window to scale spend and test new creative variants before peak spring competition season.</p>
+      <p>What works: <strong>High-energy action videos</strong>, <strong>strategy-focused content</strong>, and <strong>collegiate associations</strong>. This segment is the optimal window for testing bold new creative concepts given the high baseline engagement.</p>
     </div>
 
     <div class="card" style="border-left: 4px solid #1565c0; margin-top:16px;">
-      <h3>&#x26BD; Soccer/Lacrosse — Best CPP + High Engagement</h3>
-      <p style="margin-bottom:12px; color:var(--muted); font-size:13px;">$16.6K spend | 37 active ads | 1.39% avg CTR | 309 purchases | $53.81 CPP</p>
-      <p>Soccer/Lacrosse achieves the best CPP of any sport segment ($53.81) and solid 1.39% CTR. "Shown Soccer" delivers 139 purchases at $60.49 CPP while "3/5-Fairfield Mens Lax" achieves the best CPP in the entire top 5 at $46.96 with 82 purchases. Dynamic, sport-specific storytelling with professional production values resonates strongly with spring season athletes.</p>
+      <h3>&#x26BD; Soccer/Lacrosse — Spring Season Growth</h3>
+      <p style="margin-bottom:12px; color:var(--muted); font-size:13px;">$14.5K spend | 74 active ads | 1.54% avg CTR | 303 purchases | $47.92 CPP</p>
+      <p>Soccer/Lacrosse achieves a strong 1.54% CTR and excellent CPP efficiency ($47.92). "Shown Soccer" (106 purchases) proves that professional sport-specific storytelling is a reliable driver for this segment during the active spring competition window.</p>
       <br>
-      <p>What works: <strong>speed and agility messaging</strong>, <strong>team-specific authentic content</strong> (Fairfield Lax), and <strong>professional "Shown" video branding</strong>. The Fairfield Lax result is a strong signal — real team association drives exceptional CPP. Test more team-specific creative across soccer and lacrosse clubs.</p>
-    </div>
-
-    <div class="card" style="border-left: 4px solid #00695c; margin-top:16px;">
-      <h3>&#x1F3AF; Brand Storyline — Highest CTR Segment</h3>
-      <p style="margin-bottom:12px; color:var(--muted); font-size:13px;">$10.6K spend | 21 active ads | 1.65% avg CTR | 168 purchases | $63.35 CPP</p>
-      <p>Brand Storyline ads deliver the highest CTR of any segment (1.65%), demonstrating that brand-driven narratives foster deep connection and strong engagement. "Shown 3.3 Remakes — Wait What Guy" (1.73% CTR, 77 purchases) anchors this segment with humor and personality. The segment's CPP of $63.35 is slightly above average, suggesting the audience is engaged but needs stronger conversion-focused CTAs.</p>
-      <br>
-      <p>What works: <strong>humor and personality-driven hooks</strong>, <strong>professional "Shown" video series</strong>, and <strong>brand consistency</strong>. Potential to expand episodic content, integrate seasonal athlete testimonials, and add urgency-based CTAs to convert the high engagement into more purchases.</p>
+      <p>What works: <strong>Speed and agility messaging</strong>, <strong>professional production values</strong>, and <strong>sport-specific storytelling</strong>. The efficiency in this segment suggests it can handle increased budget allocation throughout April.</p>
     </div>
   </section>
 
@@ -806,9 +768,9 @@
       <h3>The Seasonal Creative Calendar</h3>
       <div class="timeline" style="margin-top:16px;">
         <div class="timeline-item current">
-          <div class="month-tag current">Now — Mid-March 2026</div>
-          <h4>Spring Sports Peak + March Madness Begins Mar 19</h4>
-          <p>Baseball, Soccer, and Lacrosse are in critical early-season phases. Volleyball club season is driving the account's #1 ad by spend. March Madness begins March 19 — a critical window for basketball creative refresh. Spring break travel season is starting. <strong>Sport-specific video storytelling, team-authentic content, and tournament-themed basketball ads are most powerful now.</strong></p>
+          <div class="month-tag current">Now — Late March 2026</div>
+          <h4>March Madness + Spring Sports Peak</h4>
+          <p>Spring sports are in full swing (baseball, lacrosse, soccer). March Madness is actively underway (tournament started Mar 19). Volleyball club season is active. Spring break is happening this week for many schools. Easter is approaching (Apr 5). <strong>Capitalize on tournament energy and active season performance needs.</strong></p>
         </div>
         <div class="timeline-item">
           <div class="month-tag upcoming">April — May</div>
@@ -820,40 +782,30 @@
           <h4>Summer Training + Tournament Season</h4>
           <p>All spring sports are in full swing. Focus on <strong>tournament performance, recovery, and multi-sport athletes</strong>. Summer training camps begin — target parents and coaches with educational content about long-term athletic development.</p>
         </div>
-        <div class="timeline-item">
-          <div class="month-tag upcoming">August — September</div>
-          <h4>Fall Sport Pre-Season (Football, Cross Country)</h4>
-          <p>Football pre-season is the biggest opportunity of the year. Begin building football-specific creative assets now. <strong>Back-to-school messaging</strong> for multi-sport teen athletes becomes highly relevant.</p>
-        </div>
       </div>
     </div>
 
     <div class="grid-2">
       <div class="card">
-        <h3>Current Themes That Are Working (Mid-March)</h3>
+        <h3>Current Themes That Are Working (Late March)</h3>
         <ul style="list-style:none; padding:0;">
-          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">&#x26BE; <strong>Early-season performance gains</strong> — "Throw harder, run faster this season"</li>
-          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">&#x1F3D0; <strong>Strategy-focused volleyball content</strong> — "Strategy Red Volleyball" leads in spend</li>
-          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">&#x26BD; <strong>Team-authentic lacrosse content</strong> — Fairfield Lax achieves best CPP ($46.96)</li>
-          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">&#x1F3AF; <strong>Emotion-driven hooks without copy</strong> — My Grandsons Review 7.15% CTR</li>
-          <li style="padding:10px 0; font-size:13px;">&#x1F3AC; <strong>Brand humor + personality</strong> — Wait What Guy drives 1.73% CTR</li>
+          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">&#x1F3C0; <strong>Direct discount static ads</strong> — $45 Off leads in purchases</li>
+          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">&#x1F3C0; <strong>Expert trainer credibility</strong> — Chris Brickley ad best CPP ($25.55)</li>
+          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">&#x26BD; <strong>Professional sport storytelling</strong> — "Shown Soccer" 1.93% CTR</li>
+          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">&#x1F3AF; <strong>Emotional authenticity</strong> — My Grandsons Review 11.29% CTR</li>
+          <li style="padding:10px 0; font-size:13px;">&#x1F3D0; <strong>High-energy volleyball action</strong> — 1.97% segment CTR</li>
         </ul>
       </div>
       <div class="card">
         <h3>Themes to Prepare for April</h3>
         <ul style="list-style:none; padding:0;">
           <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">&#x1F6E1;&#xFE0F; <strong>Injury prevention</strong> — "Stay on the field all season"</li>
-          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">&#x26A1; <strong>Speed & agility</strong> — Spring sport performance focus</li>
+          <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">&#x1F430; <strong>Easter Gifting</strong> — "The perfect gift for your athlete"</li>
           <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">&#x1F504; <strong>Recovery & durability</strong> — "Built for a full season"</li>
           <li style="padding:10px 0; border-bottom:1px solid var(--border); font-size:13px;">&#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467; <strong>Parent-focused messaging</strong> — "Protect your athlete"</li>
-          <li style="padding:10px 0; font-size:13px;">&#x1F331; <strong>Multi-sport athletes</strong> — Spring to summer transitions</li>
+          <li style="padding:10px 0; font-size:13px;">&#x26A1; <strong>In-season performance</strong> — Speed and agility maintenance</li>
         </ul>
       </div>
-    </div>
-
-    <div class="warning-box">
-      <h4>&#x26A0;&#xFE0F; The Breakdown Effect — A Note on Data Interpretation</h4>
-      <p>Higher spend on Baseball and Basketball segments does not mean lower-spending segments like Soccer/Lacrosse or Volleyball should be paused. Soccer/Lacrosse (1.50% CTR) and Volleyball (1.17% avg CTR) show <strong>higher engagement efficiency</strong> despite lower spend. Meta's system optimizes for marginal cost — always balance scale with efficiency. The best opportunities often lie in underinvested segments with strong engagement signals.</p>
     </div>
   </section>
 
@@ -870,53 +822,53 @@
     <div class="rec-card">
       <div class="rec-num">1</div>
       <div class="rec-body">
-        <h4>Launch March Madness-Themed Basketball Creatives Before Mar 19</h4>
-        <div class="hypothesis">"We believe launching basketball ads with March Madness-themed storytelling and dynamic game footage will improve basketball CTR by 20% and reduce CPP by 10% during the tournament period, because current basketball ads show the lowest CTR (0.82%) and highest CPP ($74.62) of any segment — but 'My Grandsons Review w/o Copy' (7.15% CTR) proves authentic, emotion-driven hooks can break through. Tournament-specific creative will capitalize on peak fan engagement."</div>
+        <h4>Add Dynamic Elements to Top-Performing Static Discount Ads</h4>
+        <div class="hypothesis">"We believe adding dynamic elements (e.g., subtle motion or GIF overlays) to top-performing static discount ads like the '$45 Off Basketball Static' will increase CTR by 15% without increasing CPP, because static ads are driving the highest purchase volume but have lower CTR (0.65%) compared to video."</div>
       </div>
     </div>
 
     <div class="rec-card">
       <div class="rec-num">2</div>
       <div class="rec-body">
-        <h4>Replicate the Fairfield Lax Formula Across More Lacrosse &amp; Soccer Teams</h4>
-        <div class="hypothesis">"We believe creating team-specific video ads featuring real lacrosse and soccer clubs (similar to '3/5-Fairfield Mens Lax') will achieve CPP below $50 in Soccer/Lacrosse, because Fairfield Lax delivered the best CPP in the entire top 5 ($46.96) with 82 purchases. Real team association creates audience identification that generic sport footage cannot replicate."</div>
+        <h4>Customize “Other” Sport Ads with Sport-Specific Visuals</h4>
+        <div class="hypothesis">"We believe customizing “Other” sport ads with sport-specific visuals and messaging will raise CTR by at least 20%, because the 'Other' segment has the lowest CTR (0.58%) but best CPP ($42.74), indicating high intent but low initial engagement."</div>
       </div>
     </div>
 
     <div class="rec-card">
       <div class="rec-num">3</div>
       <div class="rec-body">
-        <h4>Add UGC Testimonial Segments to Top Baseball Videos</h4>
-        <div class="hypothesis">"We believe adding user-generated testimonial segments to top-performing Baseball videos ('Throw Harder with Less Effort') will boost CTR by 10% and purchase volume by 10–15%, because authentic social proof combined with existing professional footage creates a trust-building hybrid format. Baseball's 456 purchases on $26.4K spend shows strong demand — UGC layering can improve conversion efficiency as the season progresses."</div>
+        <h4>Introduce UGC-Style Authenticity Clips into Professional Video Ads</h4>
+        <div class="hypothesis">"We believe introducing UGC-style authenticity clips within professional video ads for soccer/lacrosse will enhance CTR by 10% and lower CPP by improving trust signals, building on the strong 1.93% CTR already seen in 'Shown Soccer'."</div>
       </div>
     </div>
 
     <div class="rec-card">
       <div class="rec-num">4</div>
       <div class="rec-body">
-        <h4>Shorten Brand Storyline Videos for Stories and Reels Optimization</h4>
-        <div class="hypothesis">"We believe shortening Brand Storyline videos to 15–20 seconds and optimizing for Stories and Reels will increase CTR by 0.3 percentage points and lower CPM by 10%, because 'Shown 3.3 Remakes — Wait What Guy' (1.73% CTR) proves the narrative resonates — shorter cuts will capture mobile-first audiences who scroll quickly and help convert the segment's high engagement (1.65% avg CTR) into more purchases."</div>
+        <h4>Target High-Engagement Creative Exclusively to Warm Audiences</h4>
+        <div class="hypothesis">"We believe targeting the 'My Grandsons Review w/o Copy' video ad exclusively to warm audiences will reduce CPP by 30%, converting the extraordinary 11.29% CTR engagement into more efficient sales."</div>
       </div>
     </div>
 
     <div class="rec-card">
       <div class="rec-num">5</div>
       <div class="rec-body">
-        <h4>Test Spring Break Travel &amp; Recovery Messaging as a New Creative Angle</h4>
-        <div class="hypothesis">"We believe introducing travel and recovery-focused creative during spring break (starting this week) will generate a new engagement stream, increasing CTR for lifestyle-adjacent segments by 10%, because spring break shifts audience attention toward comfort and injury prevention messaging. This complements sport-specific campaigns and diversifies audience reach beyond active athletes."</div>
+        <h4>Launch Tournament-Specific Basketball Creatives for March Madness</h4>
+        <div class="hypothesis">"We believe launching tournament-specific basketball creatives tied to March Madness events will increase CTR by 25% and drive incremental purchases during the peak fan engagement window."</div>
       </div>
     </div>
 
     <div class="card" style="margin-top:24px; background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%); color:#fff; border:none;">
       <h3 style="color:#fff;">Summary: The Big Picture</h3>
-      <p style="color:rgba(255,255,255,0.85); font-size:14px; line-height:1.7;">VKTRY's mid-March 2026 creative ecosystem is performing solidly across all spring sports, with 305 ads delivering $93.6K spend and 1,516 purchases at a $61.71 CPP. Volleyball surges to the #1 position by spend this week with "Strategy Red Volleyball" leading at $8,987, while Baseball and Soccer/Lacrosse maintain strong efficiency — the latter achieving the best CPP of any segment ($53.81) anchored by the standout "3/5-Fairfield Mens Lax" at $46.96 CPP. Video continues to dominate at 77.4% of spend, but UGC has closed the CTR gap (1.18% vs. 1.12% for Video), signaling growing creative maturity. Basketball remains the most challenging segment with 122 active ads but the lowest CTR (0.82%) and highest CPP ($74.62) — with March Madness beginning March 19, a tournament-themed creative refresh is the single highest-leverage action this week. The Fairfield Lax result is the week's most important signal: real team association drives exceptional CPP, and replicating this formula across more lacrosse and soccer clubs should be the top creative priority heading into April.</p>
+      <p style="color:rgba(255,255,255,0.85); font-size:14px; line-height:1.7;">VKTRY's creative portfolio this week effectively balances broad reach with targeted engagement, capitalizing on seasonal sports momentum and ongoing basketball dominance. Video formats lead in engagement but static creatives maintain superior cost efficiency, especially in discount-driven campaigns. Audience segmentation reveals strong resonance in spring sports verticals, with opportunities to refine messaging and format blends for niche segments. Leveraging seasonal events like March Madness and Easter through tailored creative tests will be key to sustaining growth and lowering acquisition costs. Strategic experimentation with format hybrids and audience targeting should drive next-level optimization across VKTRY's diverse campaigns.</p>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <strong>VKTRY Weekly Creative Intelligence</strong> &bull; Generated Mar 16, 2026 &bull; Powered by Meta Ads data + AI analysis &bull; Runs every Monday automatically — Auto-push enabled
+  <strong>VKTRY Weekly Creative Intelligence</strong> &bull; Generated Mar 23, 2026 &bull; Powered by Meta Ads data + AI analysis &bull; Runs every Monday automatically — Auto-push enabled
 </footer>
 
 <script>
@@ -930,29 +882,29 @@
 
   // ===== DATA =====
   const sportData = {
-    labels: ['Baseball', 'Basketball', 'Volleyball', 'Soccer/Lacrosse', 'Brand Storyline', 'Other'],
-    spend: [26433, 19177, 18849, 16627, 10643, 1828],
-    ctr: [1.11, 0.82, 1.54, 1.39, 1.65, 1.06]
+    labels: ['Basketball', 'Baseball', 'Other', 'Soccer/Lacrosse', 'Volleyball', 'Brand Storyline'],
+    spend: [33979, 20580, 19617, 14519, 11043, 7177],
+    ctr: [0.93, 1.11, 0.58, 1.54, 1.97, 1.86]
   };
 
   const formatData = {
-    labels: ['Video', 'UGC', 'Static', 'Influencer', 'Story Post'],
-    spend: [72440, 10466, 8623, 1043, 985],
-    ctr: [1.12, 1.18, 0.81, 1.76, 1.05],
-    count: [156, 40, 67, 25, 17]
+    labels: ['Video', 'Static', 'UGC', 'Influencer', 'Story Post'],
+    spend: [64295, 30385, 10073, 2121, 83],
+    ctr: [1.13, 0.65, 1.12, 2.76, 0.94],
+    count: [213, 76, 45, 30, 16]
   };
 
   const topAds = [
-    { name: 'Strategy Red Volleyball', sport: 'Volleyball', format: 'Video', spend: 8987, ctr: 1.18, cpm: 10.97 },
-    { name: 'Throw Harder with Less Effort - 9x16 - 11/11', sport: 'Baseball', format: 'Video', spend: 8878, ctr: 0.95, cpm: 9.18 },
-    { name: 'Shown Soccer', sport: 'Soccer/Lacrosse', format: 'Video', spend: 8408, ctr: 1.65, cpm: 15.19 },
-    { name: 'Shown 3.3 Remakes - Wait What Guy', sport: 'Brand Storyline', format: 'Video', spend: 5163, ctr: 1.73, cpm: 14.64 },
-    { name: '3/5-Fairfield Mens Lax', sport: 'Soccer/Lacrosse', format: 'Video', spend: 3850, ctr: 1.43, cpm: 12.52 },
-    { name: 'Alabama Volleyball', sport: 'Volleyball', format: 'Video', spend: 2287, ctr: 2.32, cpm: 11.54 },
-    { name: 'Story Static 5 - 1/24', sport: 'Basketball', format: 'Static', spend: 2089, ctr: 0.72, cpm: 10.86 },
-    { name: 'Baseball Ad 3 34s - Copy', sport: 'Baseball', format: 'Video', spend: 2065, ctr: 0.98, cpm: 9.72 },
-    { name: 'Chris Brickley Partnership Ad', sport: 'Basketball', format: 'Video', spend: 2035, ctr: 0.75, cpm: 9.95 },
-    { name: 'NEQ Go Pro Volleyball', sport: 'Volleyball', format: 'UGC', spend: 1952, ctr: 2.62, cpm: 11.62 },
+    { name: '$45 Off Basketball Static', sport: 'Basketball', format: 'Static', spend: 10368, ctr: 0.64, cpm: 10.46 },
+    { name: 'Up to 30% Off Static 2', sport: 'Other', format: 'Static', spend: 4558, ctr: 0.63, cpm: 13.08 },
+    { name: 'Shown Soccer', sport: 'Soccer/Lacrosse', format: 'Video', spend: 4557, ctr: 1.93, cpm: 16.07 },
+    { name: 'My Grandsons Review w/o Copy', sport: 'Basketball', format: 'Video', spend: 4386, ctr: 11.29, cpm: 22.01 },
+    { name: 'Basketball Sale 4', sport: 'Basketball', format: 'Video', spend: 4218, ctr: 0.61, cpm: 11.68 },
+    { name: 'Shown 3.3 Remakes - Wait What Guy', sport: 'Brand Storyline', format: 'Video', spend: 2928, ctr: 2.00, cpm: 16.62 },
+    { name: 'Throw Harder with Less Effort - 9x16 - 11/11', sport: 'Baseball', format: 'Video', spend: 2357, ctr: 0.88, cpm: 8.15 },
+    { name: 'Up to 30% Off Static 4', sport: 'Other', format: 'Static', spend: 2337, ctr: 0.60, cpm: 10.10 },
+    { name: 'Chris Brickley Partnership Ad', sport: 'Basketball', format: 'Video', spend: 2300, ctr: 0.81, cpm: 10.91 },
+    { name: 'Up to 30% Off Sticker Video 4', sport: 'Other', format: 'Video', spend: 2181, ctr: 0.68, cpm: 12.91 },
   ];
 
   // ===== POPULATE TABLE =====
@@ -966,10 +918,11 @@
       'Brand Storyline': 'sport-brand',
       'Football': 'sport-football',
       'Unknown': 'sport-unknown',
-      'Multi-Sport': 'sport-multi'
+      'Multi-Sport': 'sport-multi',
+      'Other': 'sport-unknown'
     }[ad.sport] || 'sport-unknown';
 
-    const maxCtr = 2.62;
+    const maxCtr = 11.29;
     const barWidth = Math.max(4, Math.round((ad.ctr / maxCtr) * 120));
 
     tbody.innerHTML += `
