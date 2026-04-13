@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VKTRY Creative Dashboard | Mar 30 - Apr 5, 2026</title>
+    <title>VKTRY Creative Dashboard | Apr 6 - Apr 12, 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -31,7 +31,7 @@
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div>
                     <h1 class="text-4xl md:text-5xl font-extrabold mb-2">Creative Dashboard</h1>
-                    <p class="text-red-100 text-lg opacity-90">Week of Mar 30 - Apr 5, 2026</p>
+                    <p class="text-red-100 text-lg opacity-90">Week of Apr 6 - Apr 12, 2026</p>
                 </div>
                 <div class="flex items-center gap-4">
                     <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-2 border border-white/20">
@@ -51,26 +51,26 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="card p-6 flex flex-col">
                 <span class="text-slate-400 text-sm font-medium mb-1">Total Spend</span>
-                <span class="text-3xl stat-value text-white">$100,714.36</span>
-                <div class="mt-4 flex items-center text-xs text-green-400">
-                    <i class="fas fa-arrow-up mr-1"></i>
-                    <span>+4.5% vs Last Week</span>
+                <span class="text-3xl stat-value text-white">$92,568.92</span>
+                <div class="mt-4 flex items-center text-xs text-red-400">
+                    <i class="fas fa-arrow-down mr-1"></i>
+                    <span>-8.1% vs Last Week</span>
                 </div>
             </div>
             <div class="card p-6 flex flex-col">
                 <span class="text-slate-400 text-sm font-medium mb-1">Best CTR Ad</span>
-                <span class="text-lg font-bold text-white truncate">KK Arnold & Solo Ball 4th Wall</span>
-                <span class="text-2xl stat-value text-red-400">7.19%</span>
+                <span class="text-lg font-bold text-white truncate">My Grandsons Review w/o Copy</span>
+                <span class="text-2xl stat-value text-red-400">12.78%</span>
             </div>
             <div class="card p-6 flex flex-col">
                 <span class="text-slate-400 text-sm font-medium mb-1">Best CPP Ad</span>
-                <span class="text-lg font-bold text-white truncate">Influencer - Leo Latter</span>
-                <span class="text-2xl stat-value text-green-400">$0.74</span>
+                <span class="text-lg font-bold text-white truncate">Run for Roses Clog Split Screens</span>
+                <span class="text-2xl stat-value text-green-400">$39.21</span>
             </div>
             <div class="card p-6 flex flex-col">
-                <span class="text-slate-400 text-sm font-medium mb-1">Top Ad CTR</span>
-                <span class="text-slate-400 text-xs mb-1">Shown Soccer</span>
-                <span class="text-3xl stat-value text-white">2.24%</span>
+                <span class="text-slate-400 text-sm font-medium mb-1">Overall CPP</span>
+                <span class="text-slate-400 text-xs mb-1">Account Average</span>
+                <span class="text-3xl stat-value text-white">$59.45</span>
             </div>
         </div>
 
@@ -108,7 +108,8 @@
                             <th class="pb-4 font-semibold">Format</th>
                             <th class="pb-4 font-semibold text-right">Spend</th>
                             <th class="pb-4 font-semibold text-right">CTR</th>
-                            <th class="pb-4 font-semibold text-right">CPM</th>
+                            <th class="pb-4 font-semibold text-right">Purchases</th>
+                            <th class="pb-4 font-semibold text-right">CPP</th>
                         </tr>
                     </thead>
                     <tbody id="topAdsTable" class="divide-y divide-slate-800">
@@ -127,176 +128,176 @@
             
             <div class="grid grid-cols-1 gap-8" id="performerCards">
                 <!-- Performer 1 -->
-                <div class="card p-8 performer-card border-l-4 border-l-purple-500">
+                <div class="card p-8 performer-card border-l-4 border-l-amber-500">
                     <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
                         <div>
-                            <span class="badge badge-ugc mb-2 inline-block">UGC</span>
-                            <h3 class="text-2xl font-bold">1. Parents_20off_ProductAware_UGC-Mike_v4</h3>
+                            <span class="badge badge-static mb-2 inline-block">Static</span>
+                            <h3 class="text-2xl font-bold">1. Insole BOGO Static</h3>
                             <p class="text-slate-400">Sport: Other</p>
                         </div>
                         <div class="flex gap-8">
                             <div class="text-center">
                                 <span class="block text-xs uppercase text-slate-500 font-bold">CTR</span>
-                                <span class="text-xl font-bold text-white">1.56%</span>
+                                <span class="text-xl font-bold text-white">0.57%</span>
                             </div>
                             <div class="text-center">
                                 <span class="block text-xs uppercase text-slate-500 font-bold">CPP</span>
-                                <span class="text-xl font-bold text-green-400">$87.65</span>
+                                <span class="text-xl font-bold text-red-400">$92.17</span>
                             </div>
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm leading-relaxed text-slate-300">
                         <div>
                             <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Creative Strengths</h4>
-                            <p>This UGC ad nails authenticity with a relatable parent testimonial highlighting product benefits in a casual, conversational tone. The hook leverages a direct 20% discount tied to parental concern, which resonates emotionally. The format—POV-style user-generated content—builds trust and feels less like traditional advertising.</p>
+                            <p>This static ad leverages a clear, straightforward BOGO offer which resonates well with budget-conscious customers. The clean layout and prominent call-to-action (CTA) create immediate clarity. However, the relatively low CTR (0.57%) suggests the creative may lack a compelling hook or emotional appeal to drive clicks.</p>
                         </div>
                         <div>
                             <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Audience Resonance</h4>
-                            <p>With a solid CTR of 1.56% and 118 purchases, this ad clearly connects with the “Other” sport segment, likely parents of youth athletes. CPM at $16.94 is moderate, but CPP of $87.65 is slightly above average, indicating room for cost efficiency improvements. The high purchase volume suggests strong demand in this demographic.</p>
+                            <p>Despite the low CTR, this ad drove 63 purchases at a CPP of $92.17, indicating that those who do click are converting at a reasonable rate. The “Other” sport category controls the highest spend but with moderate engagement, pointing to a broad but less targeted audience.</p>
                         </div>
                         <div>
                             <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Scaling Strategy</h4>
-                            <p>Test iterations with varied discount messaging (e.g., urgency or limited-time offers) to optimize purchase rates. Additionally, experiment with shorter cuts of this UGC to improve CTR further, and explore retargeting strategies to reduce CPP by nurturing engaged but non-converting users.</p>
+                            <p>Test incorporating more dynamic elements or video variants of this BOGO offer to increase CTR without sacrificing conversion quality. Layering audience segmentation (e.g., retargeting warm leads) could improve efficiency and reduce CPP. Hypothesize that video BOGO creatives with urgency-driven messaging will improve CTR by at least 0.5%.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Performer 2 -->
-                <div class="card p-8 performer-card border-l-4 border-l-purple-500">
+                <div class="card p-8 performer-card border-l-4 border-l-blue-500">
                     <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
                         <div>
-                            <span class="badge badge-ugc mb-2 inline-block">UGC</span>
-                            <h3 class="text-2xl font-bold">2. Parents_20off_ProductAware_UGC-Daryll_v4</h3>
+                            <span class="badge badge-video mb-2 inline-block">Video</span>
+                            <h3 class="text-2xl font-bold">2. Last day to save spring sale-2</h3>
                             <p class="text-slate-400">Sport: Other</p>
                         </div>
                         <div class="flex gap-8">
                             <div class="text-center">
                                 <span class="block text-xs uppercase text-slate-500 font-bold">CTR</span>
-                                <span class="text-xl font-bold text-white">1.53%</span>
+                                <span class="text-xl font-bold text-white">0.76%</span>
                             </div>
                             <div class="text-center">
                                 <span class="block text-xs uppercase text-slate-500 font-bold">CPP</span>
-                                <span class="text-xl font-bold text-red-400">$105.29</span>
+                                <span class="text-xl font-bold text-green-400">$45.01</span>
                             </div>
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm leading-relaxed text-slate-300">
                         <div>
                             <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Creative Strengths</h4>
-                            <p>Similar to the Mike version, this ad capitalizes on raw UGC footage from a credible parent voice. The messaging is consistent with a 20% off incentive and emphasizes product awareness. The slightly lower CTR (1.53%) still outperforms overall averages.</p>
+                            <p>As a video ad tied to a limited-time sale, this creative creates urgency and leverages motion to hold attention. The use of “last day” in copy likely drives FOMO (fear of missing out), compelling quicker action. The format and messaging align with seasonal buying behavior.</p>
                         </div>
                         <div>
                             <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Audience Resonance</h4>
-                            <p>This creative drives 45 purchases with a CPM of $14.03, but CPP at $105.29 is the highest among the top five, suggesting conversions are less efficient here. The targeted audience remains “Other” sports parents, but creative fatigue or messaging saturation may be factors.</p>
+                            <p>This ad achieved a CTR of 0.76% with a strong purchase volume of 104 and a competitive CPP of $45.01, outperforming the overall account average CPP. The “Other” sport segment messaging appears to penetrate well within it, particularly during spring sales.</p>
                         </div>
                         <div>
                             <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Scaling Strategy</h4>
-                            <p>Run A/B tests introducing varied storytelling angles or testimonials from different sports to diversify appeal. Consider refreshing the creative with more dynamic video elements or influencer endorsements to boost conversion efficiency.</p>
+                            <p>Consider testing further urgency-based countdown creatives or adding social proof elements such as testimonials. Expanding this messaging into sport-specific verticals (e.g., baseball, soccer) could capitalize on seasonal interest. Hypothesize that adding customer testimonial overlays will boost CTR by 0.3%.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Performer 3 -->
-                <div class="card p-8 performer-card border-l-4 border-l-amber-500">
+                <div class="card p-8 performer-card border-l-4 border-l-blue-500">
                     <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
                         <div>
-                            <span class="badge badge-static mb-2 inline-block">Static</span>
-                            <h3 class="text-2xl font-bold">3. Parents_20off_ProductAware_Static-Review-Amanda</h3>
+                            <span class="badge badge-video mb-2 inline-block">Video</span>
+                            <h3 class="text-2xl font-bold">3. Most Aware - Already Thinking about it BOGO</h3>
                             <p class="text-slate-400">Sport: Other</p>
                         </div>
                         <div class="flex gap-8">
                             <div class="text-center">
                                 <span class="block text-xs uppercase text-slate-500 font-bold">CTR</span>
-                                <span class="text-xl font-bold text-white">0.61%</span>
+                                <span class="text-xl font-bold text-white">1.07%</span>
                             </div>
                             <div class="text-center">
                                 <span class="block text-xs uppercase text-slate-500 font-bold">CPP</span>
-                                <span class="text-xl font-bold text-green-400">$72.30</span>
+                                <span class="text-xl font-bold text-green-400">$54.53</span>
                             </div>
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm leading-relaxed text-slate-300">
                         <div>
                             <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Creative Strengths</h4>
-                            <p>A static format focusing on a customer review, this ad provides social proof in a simple, clear layout. The messaging centers on product benefits and trust, though the static format limits engagement potential compared to video/UGC.</p>
+                            <p>This video ad targets a highly aware audience segment, offering a BOGO deal that matches late-funnel intent. The concise messaging and direct offer likely drive efficient conversions, supported by a CTR of 1.07%.</p>
                         </div>
                         <div>
                             <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Audience Resonance</h4>
-                            <p>CTR is notably low at 0.61%, but the CPM ($10.18) and CPP ($72.30) are among the best in this group, indicating cost-effective reach and conversions. The 52 purchases affirm that this format still drives reliable sales in the “Other” segment.</p>
+                            <p>The ad shows strong efficiency with a CPP of $54.53, below the overall average, indicating excellent targeting and message-product fit. The “Other” sport category dominance suggests the audience is familiar with VKTRY.</p>
                         </div>
                         <div>
                             <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Scaling Strategy</h4>
-                            <p>Test video versions of this testimonial to combine social proof with higher engagement formats. Also, try carousel formats to showcase multiple product benefits or reviews, aiming to increase CTR while maintaining efficient CPP.</p>
+                            <p>Test variations highlighting different aspects of the BOGO offer (e.g., “3rd free” vs. “buy one get one”) to optimize purchase rates. Explore extending this messaging to other sports segments like Running or Soccer to capitalize on warm audience pools.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Performer 4 -->
-                <div class="card p-8 performer-card border-l-4 border-l-blue-500">
+                <div class="card p-8 performer-card border-l-4 border-l-purple-500">
                     <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
                         <div>
-                            <span class="badge badge-video mb-2 inline-block">Video</span>
-                            <h3 class="text-2xl font-bold">4. Most Aware - Already Thinking about it BOGO</h3>
-                            <p class="text-slate-400">Sport: Other</p>
+                            <span class="badge badge-ugc mb-2 inline-block">UGC</span>
+                            <h3 class="text-2xl font-bold">4. Run for Roses Clog Split Screens</h3>
+                            <p class="text-slate-400">Sport: Running</p>
                         </div>
                         <div class="flex gap-8">
                             <div class="text-center">
                                 <span class="block text-xs uppercase text-slate-500 font-bold">CTR</span>
-                                <span class="text-xl font-bold text-white">0.84%</span>
+                                <span class="text-xl font-bold text-white">2.10%</span>
                             </div>
                             <div class="text-center">
                                 <span class="block text-xs uppercase text-slate-500 font-bold">CPP</span>
-                                <span class="text-xl font-bold text-red-400">$84.49</span>
+                                <span class="text-xl font-bold text-green-400">$39.21</span>
                             </div>
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm leading-relaxed text-slate-300">
                         <div>
                             <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Creative Strengths</h4>
-                            <p>This video ad targets “Most Aware” audiences with a clear BOGO offer, appealing to users already considering VKTRY. The messaging is concise and urgency-driven. The video format allows for dynamic storytelling to reinforce product value.</p>
+                            <p>This UGC ad uses split screens and POV-style footage to create authenticity and relatability. The format naturally engages viewers with real user experiences, which is reflected in the strong CTR of 2.10%.</p>
                         </div>
                         <div>
                             <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Audience Resonance</h4>
-                            <p>CTR at 0.84% is below average for video, suggesting room for better hooks or creative refreshes. CPM ($14.92) and CPP ($84.49) indicate moderate efficiency. The 37 purchases suggest steady performance in the “Other” category.</p>
+                            <p>With a CPP of $39.21, this ad is among the most cost-efficient, demonstrating high engagement with the Running audience segment. The higher CPM suggests premium inventory, but ROI remains strong.</p>
                         </div>
                         <div>
                             <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Scaling Strategy</h4>
-                            <p>Test stronger opening hooks or influencer endorsements to elevate CTR. Also, explore retargeting warm audiences with this offer, and optimize video length for mobile-first consumption to enhance engagement.</p>
+                            <p>Scale by increasing budget allocation to the Running segment with similar UGC formats. Test additional split screen variations and longer-form testimonials to deepen engagement. Hypothesize that doubling spend will maintain CTR above 2.0%.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Performer 5 -->
-                <div class="card p-8 performer-card border-l-4 border-l-blue-500">
+                <div class="card p-8 performer-card border-l-4 border-l-amber-500">
                     <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
                         <div>
-                            <span class="badge badge-video mb-2 inline-block">Video</span>
-                            <h3 class="text-2xl font-bold">5. Shown Soccer</h3>
-                            <p class="text-slate-400">Sport: Soccer/Lacrosse</p>
+                            <span class="badge badge-static mb-2 inline-block">Static</span>
+                            <h3 class="text-2xl font-bold">5. UCONN Sale Static 1</h3>
+                            <p class="text-slate-400">Sport: Other</p>
                         </div>
                         <div class="flex gap-8">
                             <div class="text-center">
                                 <span class="block text-xs uppercase text-slate-500 font-bold">CTR</span>
-                                <span class="text-xl font-bold text-white">2.24%</span>
+                                <span class="text-xl font-bold text-white">0.79%</span>
                             </div>
                             <div class="text-center">
                                 <span class="block text-xs uppercase text-slate-500 font-bold">CPP</span>
-                                <span class="text-xl font-bold text-green-400">$62.96</span>
+                                <span class="text-xl font-bold text-green-400">$56.60</span>
                             </div>
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm leading-relaxed text-slate-300">
                         <div>
                             <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Creative Strengths</h4>
-                            <p>A professionally produced video focusing on the soccer/lacrosse segment, this ad leverages high-quality visuals and sport-specific messaging. The format allows for clear demonstration of product benefits in action, enhancing credibility.</p>
+                            <p>A static ad focused on a collegiate sale, the creative likely appeals to the university community with localized branding. The moderate CTR and clear offer messaging support steady engagement.</p>
                         </div>
                         <div>
                             <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Audience Resonance</h4>
-                            <p>With the highest CTR (2.24%) among top spenders and a low CPP of $62.96, this ad is a prime example of sport-targeted creative effectiveness. CPM is higher ($19.10), reflecting premium inventory or production costs, but purchase efficiency justifies spend.</p>
+                            <p>This ad’s CPP of $56.60 is slightly below the overall average, indicating reasonable efficiency. The “Other” sport category breadth implies localized interest (e.g., UCONN students, alumni) is the key driver.</p>
                         </div>
                         <div>
                             <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Scaling Strategy</h4>
-                            <p>Scale this creative within the soccer/lacrosse audience and test similar sport-centric professional videos for volleyball and baseball. Additionally, explore UGC or influencer hybrids to complement the polished content and reach different audience segments.</p>
+                            <p>Test layering localized targeting with dynamic creative elements such as animated CTAs. Hypothesize that geo-targeted static or video creatives will increase CTR by 0.4% and reduce CPP by 10%.</p>
                         </div>
                     </div>
                 </div>
@@ -307,39 +308,39 @@
         <div class="card p-8">
             <h3 class="text-xl font-bold mb-4">Big Picture Summary</h3>
             <p class="text-slate-300 leading-relaxed">
-                VKTRY Gear’s creative performance this week reflects a strong alignment with seasonal sports trends and audience interests, particularly within spring sports such as soccer, lacrosse, and volleyball. Video and UGC formats continue to drive the majority of engagement and purchases, with professional “Shown” videos and authentic user content proving effective across demographics. While “Other” sports and parent-targeted campaigns dominate spend and volume, opportunities exist to refine basketball messaging and expand influencer partnerships. Leveraging Easter as a timely promotional lever and scaling high-performing sport-specific creatives offer clear paths for growth and efficiency gains in the coming weeks.
+                VKTRY Gear’s creative performance this week reflects a maturing multi-format, multi-sport strategy with clear seasonal inflections. Video and UGC formats are driving engagement and conversion efficiency, particularly within spring sports and running audiences. However, broad “Other” and basketball segments show room for optimization, especially given seasonal shifts away from basketball post-March Madness. Leveraging authentic storytelling, urgency messaging, and localized targeting in high-momentum spring sports offers a promising path to scaling while maintaining or improving cost efficiency. Testable hypotheses centered on format innovation and audience refinement will be critical to sustaining growth in the coming weeks.
             </p>
         </div>
     </main>
 
     <footer class="mt-20 border-t border-slate-800 py-10 px-6 text-center text-slate-500 text-sm">
-        <p>&copy; 2026 VKTRY Gear | Weekly Creative Dashboard | Updated Apr 6, 2026</p>
+        <p>&copy; 2026 VKTRY Gear | Weekly Creative Dashboard | Updated Apr 13, 2026</p>
     </footer>
 
     <script>
         // Data constants
         const sportData = {
-            labels: ['Other', 'Basketball', 'Baseball', 'Soccer/Lacrosse', 'Volleyball', 'Brand Storyline', 'Running'],
-            spend: [44329, 15733, 13256, 11274, 7597, 6673, 1852]
+            labels: ['Other', 'Basketball', 'Soccer/Lacrosse', 'Volleyball', 'Baseball', 'Running', 'Brand Storyline'],
+            spend: [52136.91, 12962.74, 7865.30, 7619.49, 4851.31, 3716.64, 3416.53]
         };
 
         const formatData = {
-            labels: ['Video', 'UGC', 'Static', 'Influencer'],
-            spend: [51792, 30061, 16601, 1835],
-            count: [312, 115, 120, 15]
+            labels: ['Video', 'Static', 'UGC', 'Influencer', 'Story Post'],
+            spend: [44402.77, 24523.90, 21437.74, 1286.96, 917.55],
+            count: [311, 114, 144, 23, 16]
         };
 
         const topAds = [
-            { name: 'Parents_20off_ProductAware_UGC-Mike_v4', sport: 'Other', format: 'UGC', spend: 10343, ctr: 1.56, cpm: 16.94 },
-            { name: 'Parents_20off_ProductAware_UGC-Daryll_v4', sport: 'Other', format: 'UGC', spend: 4738, ctr: 1.53, cpm: 14.03 },
-            { name: 'Parents_20off_ProductAware_Static-Review-Amanda', sport: 'Other', format: 'Static', spend: 3759, ctr: 0.61, cpm: 10.18 },
-            { name: 'Most Aware - Already Thinking about it BOGO', sport: 'Other', format: 'Video', spend: 3126, ctr: 0.84, cpm: 14.92 },
-            { name: 'Shown Soccer', sport: 'Soccer/Lacrosse', format: 'Video', spend: 2833, ctr: 2.24, cpm: 19.10 },
-            { name: 'Throw Harder with Less Effort - 9x16 - 11/11', sport: 'Baseball', format: 'Video', spend: 2611, ctr: 1.20, cpm: 9.34 },
-            { name: 'Parents_BOGO_Calling Skeptical Parents', sport: 'Other', format: 'Video', spend: 2343, ctr: 1.49, cpm: 17.21 },
-            { name: 'Shown 3.3 Remakes - Wait What Guy', sport: 'Brand Storyline', format: 'Video', spend: 2151, ctr: 2.46, cpm: 16.01 },
-            { name: 'Parents_20off_ProductAware_Static-CommentThread_v2', sport: 'Other', format: 'Static', spend: 1836, ctr: 0.64, cpm: 11.14 },
-            { name: '3/9-Fairfield Women\'s Lax', sport: 'Soccer/Lacrosse', format: 'Video', spend: 1717, ctr: 2.11, cpm: 13.33 }
+            { name: 'Insole BOGO Static', sport: 'Other', format: 'Static', spend: 5806.77, ctr: 0.57, cpm: 10.54, purchases: 63, cpp: 92.17 },
+            { name: 'Last day to save spring sale-2', sport: 'Other', format: 'Video', spend: 4681.49, ctr: 0.76, cpm: 11.84, purchases: 104, cpp: 45.01 },
+            { name: 'Most Aware - Already Thinking about it BOGO', sport: 'Other', format: 'Video', spend: 3599.31, ctr: 1.07, cpm: 9.00, purchases: 66, cpp: 54.53 },
+            { name: 'Run for Roses Clog Split Screens', sport: 'Running', format: 'UGC', spend: 3137.05, ctr: 2.10, cpm: 17.35, purchases: 80, cpp: 39.21 },
+            { name: 'UCONN Sale Static 1', sport: 'Other', format: 'Static', spend: 2830.11, ctr: 0.79, cpm: 10.65, purchases: 50, cpp: 56.60 },
+            { name: 'UCONN Sale Static 3', sport: 'Other', format: 'Static', spend: 2803.92, ctr: 0.59, cpm: 12.73, purchases: 65, cpp: 43.14 },
+            { name: 'Shown 116', sport: 'Other', format: 'Video', spend: 1811.43, ctr: 2.02, cpm: 23.08, purchases: 44, cpp: 41.17 },
+            { name: 'My Grandsons Review w/o Copy', sport: 'Basketball', format: 'Video', spend: 1638.50, ctr: 12.78, cpm: 12.18, purchases: 9, cpp: 182.06 },
+            { name: 'ASSEM6_Sale Ads_NA_Final', sport: 'Other', format: 'Video', spend: 1567.17, ctr: 0.90, cpm: 16.41, purchases: 27, cpp: 58.04 },
+            { name: 'Parents_BOGO_ProductAware_UGC-Mike_v4', sport: 'Other', format: 'UGC', spend: 1564.64, ctr: 1.00, cpm: 10.06, purchases: 19, cpp: 82.35 }
         ];
 
         // Initialize Charts
@@ -374,7 +375,7 @@
                     labels: formatData.labels,
                     datasets: [{
                         data: formatData.spend,
-                        backgroundColor: ['#3b82f6', '#a855f7', '#f59e0b', '#10b981'],
+                        backgroundColor: ['#3b82f6', '#f59e0b', '#a855f7', '#10b981', '#64748b'],
                         borderWidth: 0,
                         hoverOffset: 10
                     }]
@@ -400,7 +401,8 @@
                     <td class="py-4"><span class="badge badge-${ad.format.toLowerCase()}">${ad.format}</span></td>
                     <td class="py-4 text-right font-bold text-white">$${ad.spend.toLocaleString()}</td>
                     <td class="py-4 text-right text-slate-300">${ad.ctr.toFixed(2)}%</td>
-                    <td class="py-4 text-right text-slate-400">$${ad.cpm.toFixed(2)}</td>
+                    <td class="py-4 text-right text-slate-300">${ad.purchases}</td>
+                    <td class="py-4 text-right text-slate-400">$${ad.cpp.toFixed(2)}</td>
                 `;
                 tableBody.appendChild(row);
             });
