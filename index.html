@@ -3,569 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VKTRY Creative Dashboard | Apr 20 - Apr 26, 2026</title>
+    <title>VKTRY Creative Dashboard | May 4, 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
-        .vktry-gradient { background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); }
-        .card { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.5); border-radius: 1rem; backdrop-filter: blur(12px); }
-        .stat-value { font-weight: 800; letter-spacing: -0.025em; }
-        .chart-container { position: relative; height: 300px; width: 100%; }
-        .performer-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .performer-card:hover { transform: translateY(-4px); border-color: #ef4444; }
-        .badge { padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }
-        .badge-video { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
-        .badge-ugc { background: rgba(168, 85, 247, 0.2); color: #c084fc; }
-        .badge-static { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
-        .badge-influencer { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+        .card { background: #1e293b; border: 1px solid #334155; border-radius: 0.75rem; padding: 1.5rem; }
+        .metric-value { font-size: 1.875rem; font-weight: 700; color: #38bdf8; }
+        .metric-label { font-size: 0.875rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; }
+        .tag { padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; }
+        .tag-video { background: #1e3a8a; color: #60a5fa; }
+        .tag-ugc { background: #3f2b5b; color: #d8b4fe; }
+        .tag-static { background: #14532d; color: #4ade80; }
+        .tag-storypost { background: #4c1d95; color: #a78bfa; }
     </style>
 </head>
-<body class="pb-20">
-    <!-- Header -->
-    <header class="vktry-gradient py-12 px-6 mb-8 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-20 -mt-20"></div>
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                <div>
-                    <h1 class="text-4xl md:text-5xl font-extrabold mb-2">Creative Dashboard</h1>
-                    <p class="text-red-100 text-lg opacity-90">Week of Apr 20 - Apr 26, 2026</p>
-                </div>
-                <div class="flex items-center gap-4">
-                    <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-2 border border-white/20">
-                        <span class="text-xs uppercase font-bold text-red-100 block mb-1">Status</span>
-                        <span class="flex items-center gap-2">
-                            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                            Data Fresh (7-Day)
-                        </span>
-                    </div>
-                </div>
+<body class="p-4 md:p-8">
+    <header class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+            <h1 class="text-3xl font-bold tracking-tight">VKTRY <span class="text-sky-500">Creative Dashboard</span></h1>
+            <p class="text-slate-400">Week of Apr 27 - May 3, 2026</p>
+        </div>
+        <div class="flex gap-4">
+            <div class="card py-2 px-4 text-center">
+                <div class="metric-label">Total Spend</div>
+                <div class="text-xl font-bold">$1,688.18</div>
+            </div>
+            <div class="card py-2 px-4 text-center border-sky-500/50">
+                <div class="metric-label">Best CTR</div>
+                <div class="text-xl font-bold text-sky-400">2.73%</div>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 space-y-8">
-        <!-- KPI Row -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="card p-6 flex flex-col">
-                <span class="text-slate-400 text-sm font-medium mb-1">Total Spend</span>
-                <span class="text-3xl stat-value text-white">$23,503.77</span>
-                <div class="mt-4 flex items-center text-xs text-red-400">
-                    <i class="fas fa-arrow-down mr-1"></i>
-                    <span>-63.9% vs Last Week</span>
-                </div>
-            </div>
-            <div class="card p-6 flex flex-col">
-                <span class="text-slate-400 text-sm font-medium mb-1">Best CTR Ad</span>
-                <span class="text-lg font-bold text-white truncate">Shown 116</span>
-                <span class="text-2xl stat-value text-red-400">1.76%</span>
-            </div>
-            <div class="card p-6 flex flex-col">
-                <span class="text-slate-400 text-sm font-medium mb-1">Best CPP Ad</span>
-                <span class="text-lg font-bold text-white truncate">Handy Andy Clogs Reel</span>
-                <span class="text-2xl stat-value text-green-400">$38.71</span>
-            </div>
-            <div class="card p-6 flex flex-col">
-                <span class="text-slate-400 text-sm font-medium mb-1">Overall CPP</span>
-                <span class="text-slate-400 text-xs mb-1">Account Average</span>
-                <span class="text-3xl stat-value text-white">$63.52</span>
-            </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div class="card">
+            <div class="metric-label">Avg CTR</div>
+            <div class="metric-value">0.67%</div>
+            <div class="text-xs text-slate-500 mt-1">Across 129 ads</div>
         </div>
-
-        <!-- Main Charts -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div class="card p-8">
-                <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                    <i class="fas fa-volleyball-ball text-red-500"></i>
-                    Spend by Sport
-                </h3>
-                <div class="chart-container">
-                    <canvas id="sportChart"></canvas>
-                </div>
-            </div>
-            <div class="card p-8">
-                <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                    <i class="fas fa-layer-group text-red-500"></i>
-                    Spend by Format
-                </h3>
-                <div class="chart-container">
-                    <canvas id="formatChart"></canvas>
-                </div>
-            </div>
+        <div class="card">
+            <div class="metric-label">Avg CPP</div>
+            <div class="metric-value">$88.85</div>
+            <div class="text-xs text-slate-500 mt-1">19 Total Purchases</div>
         </div>
+        <div class="card">
+            <div class="metric-label">Top Format</div>
+            <div class="metric-value">UGC</div>
+            <div class="text-xs text-slate-500 mt-1">0.86% Avg CTR</div>
+        </div>
+        <div class="card">
+            <div class="metric-label">Top Sport</div>
+            <div class="metric-value">Other</div>
+            <div class="text-xs text-slate-500 mt-1">$55.40 Avg CPP</div>
+        </div>
+    </div>
 
+    <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <!-- Top Ads Table -->
-        <div class="card p-8 overflow-hidden">
-            <h3 class="text-xl font-bold mb-6">Top 10 Ads by Spend</h3>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left">
-                    <thead>
-                        <tr class="text-slate-400 text-sm border-b border-slate-700">
-                            <th class="pb-4 font-semibold">Ad Name</th>
-                            <th class="pb-4 font-semibold">Sport</th>
-                            <th class="pb-4 font-semibold">Format</th>
-                            <th class="pb-4 font-semibold text-right">Spend</th>
-                            <th class="pb-4 font-semibold text-right">CTR</th>
-                            <th class="pb-4 font-semibold text-right">Purchases</th>
-                            <th class="pb-4 font-semibold text-right">CPP</th>
+        <section class="lg:col-span-2">
+            <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11 4a1 1 0 10-2 0v4a1 1 0 102 0V7zm-3 1a1 1 0 10-2 0v3a1 1 0 102 0V8zM8 9a1 1 0 00-2 0v2a1 1 0 102 0V9z" clip-rule="evenodd" /></svg>
+                Top 10 Ads by Spend
+            </h2>
+            <div class="card p-0 overflow-hidden">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-800 text-slate-300 uppercase text-xs font-bold">
+                        <tr>
+                            <th class="px-4 py-3">Ad Name</th>
+                            <th class="px-4 py-3">Format</th>
+                            <th class="px-4 py-3 text-right">Spend</th>
+                            <th class="px-4 py-3 text-right">CTR</th>
+                            <th class="px-4 py-3 text-right">Purchases</th>
+                            <th class="px-4 py-3 text-right">CPP</th>
                         </tr>
                     </thead>
-                    <tbody id="topAdsTable" class="divide-y divide-slate-800">
+                    <tbody id="topAdsTable" class="divide-y divide-slate-700">
                         <!-- JS Injected -->
                     </tbody>
                 </table>
             </div>
-        </div>
+        </section>
 
-        <!-- Performer Deep Dives -->
-        <div class="space-y-6">
-            <h2 class="text-2xl font-extrabold flex items-center gap-3">
-                <i class="fas fa-fire text-orange-500"></i>
-                Top 5 Performer Deep Dives
-            </h2>
-            
-            <div class="grid grid-cols-1 gap-8" id="performerCards">
-                <!-- Performer 1 -->
-                <div class="card p-8 performer-card border-l-4 border-l-purple-500">
-                    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
-                        <div>
-                            <span class="badge badge-ugc mb-2 inline-block">UGC</span>
-                            <h3 class="text-2xl font-bold">1. Run for Roses Clog Split Screens</h3>
-                            <p class="text-slate-400">Sport: Running</p>
-                        </div>
-                        <div class="flex gap-8">
-                            <div class="text-center">
-                                <span class="block text-xs uppercase text-slate-500 font-bold">CTR</span>
-                                <span class="text-xl font-bold text-white">1.47%</span>
-                            </div>
-                            <div class="text-center">
-                                <span class="block text-xs uppercase text-slate-500 font-bold">CPP</span>
-                                <span class="text-xl font-bold text-red-400">$72.49</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm leading-relaxed text-slate-300">
-                        <div>
-                            <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Creative Strengths</h4>
-                            <p>This ad leverages split screen UGC format showcasing real athlete POV footage, creating an authentic and immersive experience. The clear focus on running-related content aligns well with the audience's interests, while the visual storytelling highlights product benefits in dynamic, relatable contexts.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Audience Resonance</h4>
-                            <p>With the highest spend ($3,769.66) and 52 purchases, it achieves a strong CTR of 1.47% and a CPP of $72.49, slightly above average but justified by volume. The relatively high CPM ($18.24) suggests a premium targeting approach, likely reaching engaged runners.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Scaling Strategy</h4>
-                            <p>Testing variations with shorter cuts or different athlete segments (e.g., trail runners vs. road runners) may improve efficiency. Additionally, experimenting with calls to action emphasizing limited-time offers could increase purchase velocity.</p>
-                        </div>
-                    </div>
+        <!-- Charts Column -->
+        <section class="space-y-8">
+            <div class="card">
+                <h3 class="text-sm font-semibold mb-4 text-slate-400 uppercase tracking-wider">Spend by Sport</h3>
+                <canvas id="sportChart" height="200"></canvas>
+            </div>
+            <div class="card">
+                <h3 class="text-sm font-semibold mb-4 text-slate-400 uppercase tracking-wider">Format Performance (CTR)</h3>
+                <canvas id="formatChart" height="200"></canvas>
+            </div>
+        </section>
+
+        <!-- Top Performer Cards -->
+        <section class="lg:col-span-3">
+            <h2 class="text-xl font-semibold mb-6">Top Performer Deep Dives</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="performerCards">
+                <!-- JS Injected -->
+            </div>
+        </section>
+
+        <!-- Big Picture & Recommendations -->
+        <section class="lg:col-span-2">
+            <div class="card h-full">
+                <h2 class="text-xl font-semibold mb-4">Account Strategy & Big Picture</h2>
+                <div class="prose prose-invert max-w-none text-slate-300 space-y-4">
+                    <p id="bigPicture">VKTRY’s advertising efforts in early spring 2026 reveal strong creative opportunities in running and diverse “Other” sports categories, particularly through authentic UGC and professional video formats. However, basketball remains a significant underperformer despite heavy investment and impression volume. Early-season momentum in spring sports and the NBA playoffs presents an untapped avenue to amplify purchase activity. Future campaigns should focus on scaling proven creative formats, experimenting with influencer partnerships, and refining conversion pathways to better convert engaged audiences into customers, ultimately improving cost efficiency and purchase volume.</p>
                 </div>
-
-                <!-- Performer 2 -->
-                <div class="card p-8 performer-card border-l-4 border-l-amber-500">
-                    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
-                        <div>
-                            <span class="badge badge-static mb-2 inline-block">Static</span>
-                            <h3 class="text-2xl font-bold">2. Insole BOGO Static</h3>
-                            <p class="text-slate-400">Sport: Other</p>
-                        </div>
-                        <div class="flex gap-8">
-                            <div class="text-center">
-                                <span class="block text-xs uppercase text-slate-500 font-bold">CTR</span>
-                                <span class="text-xl font-bold text-white">0.47%</span>
-                            </div>
-                            <div class="text-center">
-                                <span class="block text-xs uppercase text-slate-500 font-bold">CPP</span>
-                                <span class="text-xl font-bold text-green-400">$65.04</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm leading-relaxed text-slate-300">
-                        <div>
-                            <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Creative Strengths</h4>
-                            <p>The simple static format communicates a clear value proposition — "Buy One Get One" — which is a direct and compelling offer. The minimalistic design likely speeds comprehension and drives action.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Audience Resonance</h4>
-                            <p>Despite a modest CTR of 0.47%, this ad generated 22 purchases at a competitive CPP of $65.04 and relatively low CPM ($10.56). This suggests the message effectively converts a specific segment that responds well to price promotions.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Scaling Strategy</h4>
-                            <p>Testing animated versions or adding UGC testimonials alongside the BOGO offer might boost CTR. Segmenting by audience demographics to identify who responds best to deals could further optimize spend.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Performer 3 -->
-                <div class="card p-8 performer-card border-l-4 border-l-blue-500">
-                    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
-                        <div>
-                            <span class="badge badge-video mb-2 inline-block">Video</span>
-                            <h3 class="text-2xl font-bold">3. Shown 116</h3>
-                            <p class="text-slate-400">Sport: Other</p>
-                        </div>
-                        <div class="flex gap-8">
-                            <div class="text-center">
-                                <span class="block text-xs uppercase text-slate-500 font-bold">CTR</span>
-                                <span class="text-xl font-bold text-white">1.76%</span>
-                            </div>
-                            <div class="text-center">
-                                <span class="block text-xs uppercase text-slate-500 font-bold">CPP</span>
-                                <span class="text-xl font-bold text-green-400">$46.68</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm leading-relaxed text-slate-300">
-                        <div>
-                            <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Creative Strengths</h4>
-                            <p>As a professional video ("Shown" series), this ad combines high production value with storytelling that resonates well with the "Other" sports audience. The 1.76% CTR is the highest among top spenders, showing strong engagement.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Audience Resonance</h4>
-                            <p>19 purchases at a CPP of $46.68 make this ad one of the most cost-efficient investments. However, the CPM is relatively high ($33.89), indicating a premium placement or targeting.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Scaling Strategy</h4>
-                            <p>Consider expanding targeting slightly to scale impressions while monitoring CTR and CPP. Testing shorter cuts or alternative messaging can help optimize cost without sacrificing engagement.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Performer 4 -->
-                <div class="card p-8 performer-card border-l-4 border-l-purple-500">
-                    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
-                        <div>
-                            <span class="badge badge-ugc mb-2 inline-block">UGC</span>
-                            <h3 class="text-2xl font-bold">4. Handy Andy Clogs Reel</h3>
-                            <p class="text-slate-400">Sport: Other</p>
-                        </div>
-                        <div class="flex gap-8">
-                            <div class="text-center">
-                                <span class="block text-xs uppercase text-slate-500 font-bold">CTR</span>
-                                <span class="text-xl font-bold text-white">1.84%</span>
-                            </div>
-                            <div class="text-center">
-                                <span class="block text-xs uppercase text-slate-500 font-bold">CPP</span>
-                                <span class="text-xl font-bold text-green-400">$38.71</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm leading-relaxed text-slate-300">
-                        <div>
-                            <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Creative Strengths</h4>
-                            <p>The Handy Andy Clogs Reel features high engagement (1.84% CTR) and excellent efficiency ($38.71 CPP). The reel format and authentic creator content drive strong product interest and conversion.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Audience Resonance</h4>
-                            <p>Resonates strongly with a broad "Other" audience, proving that relatable, creator-led video is a top-tier performer for the Clog product line.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Scaling Strategy</h4>
-                            <p>Replicate the "Handy Andy" formula with other creators. Use the best-performing hooks from this reel to create new ad variations.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Performer 5 -->
-                <div class="card p-8 performer-card border-l-4 border-l-blue-500">
-                    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
-                        <div>
-                            <span class="badge badge-video mb-2 inline-block">Video</span>
-                            <h3 class="text-2xl font-bold">5. X-Ray Clog Video</h3>
-                            <p class="text-slate-400">Sport: Other</p>
-                        </div>
-                        <div class="flex gap-8">
-                            <div class="text-center">
-                                <span class="block text-xs uppercase text-slate-500 font-bold">CTR</span>
-                                <span class="text-xl font-bold text-white">1.30%</span>
-                            </div>
-                            <div class="text-center">
-                                <span class="block text-xs uppercase text-slate-500 font-bold">CPP</span>
-                                <span class="text-xl font-bold text-green-400">$63.29</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm leading-relaxed text-slate-300">
-                        <div>
-                            <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Creative Strengths</h4>
-                            <p>The X-Ray Clog Video provides a technical, visual breakdown of product benefits. The high-tech "X-Ray" aesthetic builds trust and explains the "why" behind the insole technology.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Audience Resonance</h4>
-                            <p>Effective at converting product-aware audiences who need a final technical nudge. Maintains a healthy $63.29 CPP on significant spend.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white mb-2 uppercase text-xs tracking-wider">Scaling Strategy</h4>
-                            <p>Test the X-Ray visual style with sport-specific overlays (e.g., X-Ray for Basketball shoes) to see if localized technical content improves CTR further.</p>
-                        </div>
-                    </div>
+                <div class="mt-8">
+                    <h3 class="text-lg font-semibold mb-4 text-sky-400">Weekly Recommendations</h3>
+                    <ul class="space-y-3" id="recommendations">
+                        <!-- JS Injected -->
+                    </ul>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Format & Audience Breakdown -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- Formats -->
-            <div class="card p-8">
-                <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                    <i class="fas fa-th-large text-blue-500"></i>
-                    Creative Formats
-                </h3>
-                <div class="space-y-6">
-                    <div class="grid grid-cols-3 gap-4 text-center">
-                        <div class="bg-slate-800/50 rounded-lg p-3">
-                            <span class="block text-xs text-slate-400 uppercase font-bold mb-1">Video CTR</span>
-                            <span class="text-lg font-bold">0.64%</span>
-                        </div>
-                        <div class="bg-slate-800/50 rounded-lg p-3">
-                            <span class="block text-xs text-slate-400 uppercase font-bold mb-1">UGC CTR</span>
-                            <span class="text-lg font-bold text-purple-400">1.00%</span>
-                        </div>
-                        <div class="bg-slate-800/50 rounded-lg p-3">
-                            <span class="block text-xs text-slate-400 uppercase font-bold mb-1">Static CTR</span>
-                            <span class="text-lg font-bold">0.75%</span>
-                        </div>
-                    </div>
-                    <div class="border-t border-slate-700 pt-6">
-                        <h4 class="text-sm font-bold mb-4 uppercase tracking-widest text-slate-500">Format Performance</h4>
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm">Video Spend Share</span>
-                                <span class="text-sm font-bold">36.7%</span>
-                            </div>
-                            <div class="w-full bg-slate-800 rounded-full h-2">
-                                <div class="bg-blue-500 h-2 rounded-full" style="width: 36.7%"></div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm">UGC Spend Share</span>
-                                <span class="text-sm font-bold">34.9%</span>
-                            </div>
-                            <div class="w-full bg-slate-800 rounded-full h-2">
-                                <div class="bg-purple-500 h-2 rounded-full" style="width: 34.9%"></div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm">Static Spend Share</span>
-                                <span class="text-sm font-bold">26.9%</span>
-                            </div>
-                            <div class="w-full bg-slate-800 rounded-full h-2">
-                                <div class="bg-amber-500 h-2 rounded-full" style="width: 26.9%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Audiences -->
-            <div class="card p-8">
-                <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                    <i class="fas fa-users text-green-500"></i>
-                    Top Sport Segments
-                </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="font-bold">Other</span>
-                            <span class="text-xs text-slate-400">194 Ads</span>
-                        </div>
-                        <div class="text-2xl font-bold text-white mb-1">$14,271</div>
-                        <div class="text-xs text-slate-400">Avg CTR: 0.72% | 256 Purchases</div>
-                    </div>
-                    <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="font-bold">Basketball</span>
-                            <span class="text-xs text-slate-400">111 Ads</span>
-                        </div>
-                        <div class="text-2xl font-bold text-white mb-1">$4,229</div>
-                        <div class="text-xs text-slate-400">Avg CTR: 0.63% | 20 Purchases</div>
-                    </div>
-                    <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="font-bold">Running</span>
-                            <span class="text-xs text-slate-400">3 Ads</span>
-                        </div>
-                        <div class="text-2xl font-bold text-white mb-1">$3,771</div>
-                        <div class="text-xs text-slate-400">Avg CTR: 1.47% | 52 Purchases</div>
-                    </div>
-                    <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="font-bold">Soccer/Lax</span>
-                            <span class="text-xs text-slate-400">25 Ads</span>
-                        </div>
-                        <div class="text-2xl font-bold text-white mb-1">$763</div>
-                        <div class="text-xs text-slate-400 text-green-400 font-bold">Avg CTR: 1.01% | CPP: $24.60</div>
-                    </div>
-                </div>
-                <p class="mt-6 text-sm text-slate-400 italic">
-                    Soccer/Lacrosse continues to show the best efficiency ($24.60 CPP) as spring seasons peak. Running is highly efficient but needs more creative volume.
-                </p>
-            </div>
-        </div>
-
-        <!-- Seasonal & Recommendations -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div class="card p-8 lg:col-span-1">
-                <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                    <i class="fas fa-calendar-alt text-red-500"></i>
-                    Seasonal Intel
-                </h3>
+        <!-- Seasonal Intel -->
+        <section>
+            <div class="card h-full">
+                <h2 class="text-xl font-semibold mb-4">Seasonal Intel</h2>
                 <div class="space-y-4">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center text-red-500">
-                            <i class="fas fa-sun"></i>
-                        </div>
-                        <div>
-                            <span class="block font-bold">Late April 2026</span>
-                            <span class="text-xs text-slate-400">Spring Season Peak</span>
-                        </div>
+                    <div class="p-3 bg-slate-800 rounded-lg border-l-4 border-amber-500">
+                        <div class="font-bold text-amber-400">May 2026</div>
+                        <p class="text-sm text-slate-300">Spring sports (baseball, lacrosse, soccer) are in full competition mode.</p>
                     </div>
-                    <p class="text-sm text-slate-300 leading-relaxed">
-                        Spring sports (baseball, lacrosse, soccer) are in full swing. Soccer/Lacrosse efficiency is at an all-time high. NBA Playoffs are starting, but basketball creatives are struggling with high competition.
-                    </p>
-                    <div class="pt-4 border-t border-slate-700">
-                        <span class="block text-xs font-bold uppercase text-slate-500 mb-2">Active Themes</span>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-slate-800 px-2 py-1 rounded text-xs">Spring Sports</span>
-                            <span class="bg-slate-800 px-2 py-1 rounded text-xs">NBA Playoffs</span>
-                            <span class="bg-slate-800 px-2 py-1 rounded text-xs">BOGO Offer</span>
-                        </div>
+                    <div class="p-3 bg-slate-800 rounded-lg border-l-4 border-sky-500">
+                        <div class="font-bold text-sky-400">NBA Playoffs</div>
+                        <p class="text-sm text-slate-300">Second round beginning. High basketball interest, but current creatives are lagging.</p>
                     </div>
                 </div>
             </div>
-
-            <div class="card p-8 lg:col-span-2">
-                <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                    <i class="fas fa-lightbulb text-yellow-400"></i>
-                    Strategic Recommendations
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="space-y-2">
-                        <span class="text-xs font-bold text-yellow-400 uppercase">Hypothesis 1</span>
-                        <p class="text-sm font-bold text-white">LTO Urgency in Running</p>
-                        <p class="text-xs text-slate-400">Adding limited-time offers to top Running UGC will boost purchases by 15%.</p>
-                    </div>
-                    <div class="space-y-2">
-                        <span class="text-xs font-bold text-yellow-400 uppercase">Hypothesis 2</span>
-                        <p class="text-sm font-bold text-white">Hybrid BOGO Formats</p>
-                        <p class="text-xs text-slate-400">Testing animated BOGO ads will improve CTR by 20% over static versions.</p>
-                    </div>
-                    <div class="space-y-2">
-                        <span class="text-xs font-bold text-yellow-400 uppercase">Hypothesis 3</span>
-                        <p class="text-sm font-bold text-white">Baseball Reactivation</p>
-                        <p class="text-xs text-slate-400">New Baseball UGC will yield >1.0% CTR by capturing early-season enthusiasm.</p>
-                    </div>
-                    <div class="space-y-2">
-                        <span class="text-xs font-bold text-yellow-400 uppercase">Hypothesis 4</span>
-                        <p class="text-sm font-bold text-white">Playoff Affiliation Targeting</p>
-                        <p class="text-xs text-slate-400">Segmenting basketball by team affiliation will reduce CPP by 30% during playoffs.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Big Picture -->
-        <div class="card p-8 bg-slate-800/30 border-dashed border-slate-600">
-            <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                <i class="fas fa-globe-americas text-blue-400"></i>
-                The Big Picture
-            </h3>
-            <p class="text-slate-300 leading-relaxed">
-                This week’s data reveals VKTRY Gear’s strength in authentic, user-generated content and timely, seasonally aligned campaigns, particularly within Running and Soccer/Lacrosse segments. Professional video assets continue to support brand credibility but require careful targeting to balance cost and efficiency. Underperforming basketball campaigns during the NBA Playoffs and dormant baseball efforts highlight clear areas for strategic activation and creative iteration. Moving forward, focused testing on messaging, format innovation, and audience segmentation grounded in seasonal relevance will be key to driving higher efficiency and scaling purchase volume.
-            </p>
-        </div>
+        </section>
     </main>
 
-    <footer class="mt-12 text-center text-slate-500 text-sm">
-        <p>&copy; 2026 VKTRY Gear Creative Pipeline. Updated Apr 27, 2026.</p>
+    <footer class="mt-12 py-6 border-t border-slate-800 text-center text-slate-500 text-sm">
+        VKTRY Creative Dashboard &bull; Data updated May 4, 2026 &bull; Confidential
     </footer>
 
     <script>
-        // Data from enriched_ads.json
-        const sportData = {
-            labels: ["Other", "Basketball", "Running", "Soccer/Lax", "Volleyball"],
-            data: [14271, 4229, 3771, 763, 469]
-        };
-
-        const formatData = {
-            labels: ["Video", "UGC", "Static", "Story Post"],
-            data: [8632, 8202, 6334, 335]
-        };
-
+        const sportData = {"Other": 720.17, "Basketball": 529.81, "Running": 431.73, "Volleyball": 6.47};
+        const formatData = {"Video": 0.46, "UGC": 0.86, "Static": 0.90, "Story Post": 0.92};
+        
         const topAds = [
-            { name: "Run for Roses Clog Split Screens", sport: "Running", format: "UGC", spend: 3769.66, ctr: 1.47, cpm: 18.24 },
-            { name: "Insole BOGO Static", sport: "Other", format: "Static", spend: 1430.88, ctr: 0.47, cpm: 10.56 },
-            { name: "Draft Day Deal 1", sport: "Other", format: "Video", spend: 1054.92, ctr: 0.33, cpm: 0.56 },
-            { name: "Story Statics 5 - 1/24", sport: "Basketball", format: "Static", spend: 963.93, ctr: 0.90, cpm: 1.04 },
-            { name: "Shown 116", sport: "Other", format: "Video", spend: 886.83, ctr: 1.76, cpm: 33.89 },
-            { name: "Chicago POV- General No Music", sport: "Other", format: "UGC", spend: 837.59, ctr: 1.53, cpm: 11.32 },
-            { name: "Handy Andy Clogs Reel", sport: "Other", format: "UGC", spend: 735.40, ctr: 1.84, cpm: 33.17 },
-            { name: "Parents_20off_ProductAware_Static-IGTestimonial_v1", sport: "Other", format: "Static", spend: 729.14, ctr: 0.48, cpm: 13.42 },
-            { name: "X-Ray Clog Video", sport: "Other", format: "Video", spend: 696.14, ctr: 1.30, cpm: 18.54 },
-            { name: "Drew Burress 4th Wall", sport: "Basketball", format: "Video", spend: 425.13, ctr: 0.25, cpm: 0.83 }
+            { name: "Run for Roses Clog Split Screens", format: "UGC", spend: 326.10, ctr: 1.55, purchases: 5, cpp: 65.22 },
+            { name: "Shown 116", format: "Video", spend: 302.57, ctr: 1.48, purchases: 5, cpp: 60.51 },
+            { name: "X-Ray Clog Video", format: "Video", spend: 135.07, ctr: 1.42, purchases: 4, cpp: 33.77 },
+            { name: "VKTRY Stickie Notes", format: "UGC", spend: 105.58, ctr: 1.16, purchases: 1, cpp: 105.58 },
+            { name: "Baseball \"Watch This\" Ad", format: "Video", spend: 82.98, ctr: 0.21, purchases: 0, cpp: null },
+            { name: "Recovery Slides Black Static", format: "Static", spend: 67.35, ctr: 1.37, purchases: 0, cpp: null },
+            { name: "Best Insole Ever Story Post", format: "Story Post", spend: 65.75, ctr: 0.83, purchases: 0, cpp: null },
+            { name: "White Insole Cold Plunge 1", format: "Video", spend: 56.06, ctr: 2.73, purchases: 0, cpp: null },
+            { name: "Drew Burress 4th Wall", format: "Video", spend: 53.80, ctr: 0.22, purchases: 0, cpp: null },
+            { name: "Softball 1/22", format: "Video", spend: 43.94, ctr: 0.43, purchases: 0, cpp: null }
         ];
 
-        // Render Sport Chart
-        const sportCtx = document.getElementById('sportChart').getContext('2d');
-        new Chart(sportCtx, {
+        const top5 = [
+            { 
+                name: "Run for Roses Clog Split Screens", 
+                sport: "Running", 
+                format: "UGC", 
+                spend: 326.10, 
+                ctr: 1.55, 
+                cpp: 65.22,
+                analysis: "This UGC split screen ad leverages an authentic, relatable POV format that clearly contrasts VKTRY insoles with competitors, emphasizing energy return. The hook is strong, utilizing handwritten-style notes for a personal, athlete-centric message that positions VKTRY as a performance upgrade. The format’s informal style fosters trust and engagement."
+            },
+            { 
+                name: "Shown 116", 
+                sport: "Other", 
+                format: "Video", 
+                spend: 302.57, 
+                ctr: 1.48, 
+                cpp: 60.51,
+                analysis: "Shown 116 is a polished professional video showcasing VKTRY insoles in action, which likely appeals to a broader 'Other' sports audience. The high production value and clear demonstration of benefits serve as a strong hook, making technical performance easily understandable."
+            },
+            { 
+                name: "X-Ray Clog Video", 
+                sport: "Other", 
+                format: "Video", 
+                spend: 135.07, 
+                ctr: 1.42, 
+                cpp: 33.77,
+                analysis: "This video creatively uses an 'X-Ray' concept to visualize the insole’s impact, providing a compelling, unique hook that differentiates VKTRY from competitors. The narrative likely simplifies technical benefits, making it digestible and engaging."
+            },
+            { 
+                name: "VKTRY Stickie Notes", 
+                sport: "Running", 
+                format: "UGC", 
+                spend: 105.58, 
+                ctr: 1.16, 
+                cpp: 105.58,
+                analysis: "This UGC ad uses handwritten notes to create a compelling narrative contrasting standard insoles with VKTRY’s superior performance. The side-by-side comparison provides a clear value proposition with a human touch, which can resonate well with running enthusiasts."
+            },
+            { 
+                name: "Springier Static 1/29", 
+                sport: "Other", 
+                format: "Static", 
+                spend: 35.43, 
+                ctr: 0.79, 
+                cpp: 35.43,
+                analysis: "This static image ad uses handwritten-style text to acknowledge comfort trade-offs while emphasizing performance benefits, a refreshingly honest approach. The minimalistic design highlights the product clearly, focusing on 'springier legs' as the key benefit."
+            }
+        ];
+
+        const recommendations = [
+            "Expanding UGC Split Screen Formats in Running Ads Will Increase Purchase Rate",
+            "Scaling Professional Video Content in 'Other' Sports Will Drive Incremental Purchases",
+            "Introducing Transparent Messaging in Static Ads Across Sports Will Boost Engagement",
+            "Leveraging Influencer Partnerships During NBA Playoffs Will Improve Basketball Conversions",
+            "Optimizing Story Post Conversion Paths Will Convert Engagement into Purchases"
+        ];
+
+        // Populate Table
+        const tableBody = document.getElementById('topAdsTable');
+        topAds.forEach(ad => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td class="px-4 py-3 font-medium">${ad.name}</td>
+                <td class="px-4 py-3"><span class="tag tag-${ad.format.toLowerCase().replace(' ', '')}">${ad.format}</span></td>
+                <td class="px-4 py-3 text-right">$${ad.spend.toFixed(2)}</td>
+                <td class="px-4 py-3 text-right">${ad.ctr.toFixed(2)}%</td>
+                <td class="px-4 py-3 text-right">${ad.purchases}</td>
+                <td class="px-4 py-3 text-right">${ad.cpp ? '$' + ad.cpp.toFixed(2) : 'N/A'}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+
+        // Populate Cards
+        const cardContainer = document.getElementById('performerCards');
+        top5.forEach(ad => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <div class="flex justify-between items-start mb-4">
+                    <span class="tag tag-${ad.format.toLowerCase().replace(' ', '')}">${ad.format}</span>
+                    <span class="text-xs font-bold text-slate-500">${ad.sport}</span>
+                </div>
+                <h4 class="font-bold mb-2 line-clamp-2">${ad.name}</h4>
+                <div class="grid grid-cols-2 gap-2 mb-4">
+                    <div class="bg-slate-800 p-2 rounded">
+                        <div class="text-[10px] text-slate-500 uppercase">CTR</div>
+                        <div class="text-sm font-bold">${ad.ctr.toFixed(2)}%</div>
+                    </div>
+                    <div class="bg-slate-800 p-2 rounded">
+                        <div class="text-[10px] text-slate-500 uppercase">CPP</div>
+                        <div class="text-sm font-bold text-sky-400">${ad.cpp ? '$' + ad.cpp.toFixed(2) : 'N/A'}</div>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed">${ad.analysis}</p>
+            `;
+            cardContainer.appendChild(card);
+        });
+
+        // Populate Recommendations
+        const recList = document.getElementById('recommendations');
+        recommendations.forEach(rec => {
+            const li = document.createElement('li');
+            li.className = 'flex gap-3 items-start text-sm text-slate-300';
+            li.innerHTML = `
+                <span class="bg-sky-500/20 text-sky-400 rounded px-1.5 py-0.5 text-[10px] font-bold mt-0.5">TEST</span>
+                <span>${rec}</span>
+            `;
+            recList.appendChild(li);
+        });
+
+        // Charts
+        new Chart(document.getElementById('sportChart'), {
             type: 'doughnut',
             data: {
-                labels: sportData.labels,
+                labels: Object.keys(sportData),
                 datasets: [{
-                    data: sportData.data,
-                    backgroundColor: ['#ef4444', '#3b82f6', '#8b5cf6', '#10b981', '#f59e0b'],
+                    data: Object.values(sportData),
+                    backgroundColor: ['#38bdf8', '#818cf8', '#fbbf24', '#f87171'],
                     borderWidth: 0
                 }]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { position: 'right', labels: { color: '#94a3b8', font: { family: 'Inter', size: 12 } } }
-                }
-            }
+            options: { plugins: { legend: { position: 'bottom', labels: { color: '#94a3b8', boxWidth: 12 } } } }
         });
 
-        // Render Format Chart
-        const formatCtx = document.getElementById('formatChart').getContext('2d');
-        new Chart(formatCtx, {
+        new Chart(document.getElementById('formatChart'), {
             type: 'bar',
             data: {
-                labels: formatData.labels,
+                labels: Object.keys(formatData),
                 datasets: [{
-                    label: 'Spend ($)',
-                    data: formatData.data,
-                    backgroundColor: ['#3b82f6', '#a855f7', '#f59e0b', '#64748b'],
-                    borderRadius: 8
+                    label: 'Avg CTR',
+                    data: Object.values(formatData),
+                    backgroundColor: '#38bdf8',
+                    borderRadius: 4
                 }]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: { grid: { color: 'rgba(51, 65, 85, 0.5)' }, ticks: { color: '#94a3b8' } },
+            options: { 
+                scales: { 
+                    y: { beginAtZero: true, grid: { color: '#334155' }, ticks: { color: '#94a3b8' } },
                     x: { grid: { display: false }, ticks: { color: '#94a3b8' } }
                 },
                 plugins: { legend: { display: false } }
             }
-        });
-
-        // Render Top Ads Table
-        const tableBody = document.getElementById('topAdsTable');
-        topAds.forEach(ad => {
-            const row = document.createElement('tr');
-            row.className = 'text-sm hover:bg-slate-800/40 transition-colors';
-            row.innerHTML = `
-                <td class="py-4 font-medium text-white">${ad.name}</td>
-                <td class="py-4 text-slate-400">${ad.sport}</td>
-                <td class="py-4">
-                    <span class="badge badge-${ad.format.toLowerCase()}">${ad.format}</span>
-                </td>
-                <td class="py-4 text-right font-bold text-white">$${ad.spend.toLocaleString()}</td>
-                <td class="py-4 text-right text-red-400 font-bold">${ad.ctr}%</td>
-                <td class="py-4 text-right text-slate-400">${Math.round(ad.spend/70)}</td>
-                <td class="py-4 text-right text-slate-400">$${Math.round(ad.spend/(ad.spend/70))}</td>
-            `;
-            tableBody.appendChild(row);
         });
     </script>
 </body>
